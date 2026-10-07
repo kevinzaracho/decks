@@ -76,26 +76,36 @@
     });
 
     history.replaceState(null, "", `#${next + 1}`);
-    store.set("promos-deck-slide", String(next));
+    store.set("promos-deck-slide-v4", String(next));
     hideTip();
   }
 
   $("#btnPrev").addEventListener("click", () => go(current - 1));
   $("#btnNext").addEventListener("click", () => go(current + 1));
 
+  /* data-go: "next", "prev", a sheet number or a slide id (so links survive reordering). */
+  function indexOfTarget(target) {
+    if (/^\d+$/.test(target)) return Number(target) - 1;
+    return slides.findIndex((slide) => slide.id === target);
+  }
+
   document.addEventListener("click", (event) => {
     const trigger = event.target.closest("[data-go]");
     if (!trigger) return;
+    if (trigger.tagName === "A") event.preventDefault();
     const target = trigger.dataset.go;
     if (target === "next") go(current + 1);
     else if (target === "prev") go(current - 1);
-    else go(Number(target) - 1);
+    else {
+      const index = indexOfTarget(target);
+      if (index >= 0) go(index);
+    }
     if (indexDialog.open) indexDialog.close();
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.metaKey || event.ctrlKey || event.altKey) return;
-    if (indexDialog.open) return;
+    if (indexDialog.open || zoomDialog.open) return;
     const typing = event.target.closest("input, textarea, select, [contenteditable]");
     const onControl = event.target.closest("button, a, label");
     switch (event.key) {
@@ -196,6 +206,22 @@
     if (event.target === indexDialog) indexDialog.close();
   });
 
+  /* ---------- Zoom: any screenshot opens full size ---------- */
+  const zoomDialog = $("#zoomDialog");
+  const zoomImg = $("#zoomImg");
+  const zoomCap = $("#zoomCap");
+  document.addEventListener("click", (event) => {
+    const img = event.target.closest(".shot img");
+    if (!img) return;
+    zoomImg.src = img.currentSrc || img.src;
+    zoomImg.alt = img.alt;
+    const caption = img.closest(".shot").querySelector("figcaption");
+    zoomCap.textContent = caption ? caption.textContent.trim() : "";
+    zoomCap.hidden = !caption;
+    zoomDialog.showModal();
+  });
+  zoomDialog.addEventListener("click", () => zoomDialog.close());
+
   /* ---------- Theme ---------- */
   const root = document.documentElement;
   const darkQuery = matchMedia("(prefers-color-scheme: dark)");
@@ -278,30 +304,36 @@
     { id: "confirmar", label: "Hay que confirmarlo", short: "A confirmar", icon: "i-question" },
   ];
   const TEAMS = [
-    { id: "plan", label: "El plan", sub: "documentos · listos" },
+    { id: "plan", label: "El plan", sub: "documentos y este deck" },
     { id: "front", label: "El código del front", sub: "las 7 etapas · tu parte" },
+    { id: "camino", label: "Para llegar a producción", sub: "vos y la API" },
     { id: "gonzalo", label: "Respuestas de Gonzalo", sub: "la ERS" },
     { id: "vero", label: "Respuestas de Verónica", sub: "el Figma" },
   ];
   const PIECES = [
-    { team: "plan", st: "prod", name: "Plan general: reglas, contrato con la API y choques entre la ERS y el Figma" },
-    { team: "plan", st: "prod", name: "Planes de las 7 etapas, encajados entre sí" },
-    { team: "plan", st: "prod", name: "Control con el Figma (02/10): sin cambios" },
-    { team: "plan", st: "prod", name: "Datos de prueba diseñados (4 juegos, 10 casos)" },
-    { team: "front", st: "falta", name: "Etapa 1 · La base (reglas, textos, datos de demo, flag)" },
-    { team: "front", st: "falta", name: "Etapa 2 · Productos: columna y popup" },
-    { team: "front", st: "falta", name: "Etapa 3 · Participar y dejar, de a una" },
-    { team: "front", st: "falta", name: "Etapa 4 · Varias a la vez" },
-    { team: "front", st: "falta", name: "Etapa 5 · Modificar oferta y Meli+" },
-    { team: "front", st: "falta", name: "Etapa 6 · Pestaña Promociones del Asistente" },
-    { team: "front", st: "falta", name: "Etapa 7 · Campañas y Detalles de publicación" },
-    { team: "gonzalo", st: "confirmar", name: "Datos que la ERS no trae: precio normal, Meli+ actual, total de la campaña, catálogo" },
-    { team: "gonzalo", st: "confirmar", name: "Con qué cuenta de ML trabaja cada pedido y parámetros que faltan" },
+    { team: "plan", st: "prod", name: "Plan general y planes de las 7 etapas" },
+    { team: "plan", st: "prod", name: "Este deck, con capturas reales" },
+    { team: "front", st: "prod", name: "Etapa 1 · La base" },
+    { team: "front", st: "prod", name: "Etapa 2 · Productos: columna y popup" },
+    { team: "front", st: "prod", name: "Etapa 3 · Participar y dejar" },
+    { team: "front", st: "prod", name: "Etapa 4 · Varias a la vez" },
+    { team: "front", st: "prod", name: "Etapa 5 · Modificar oferta y Meli+" },
+    { team: "front", st: "prod", name: "Etapa 6 · Pestaña del Asistente" },
+    { team: "front", st: "prod", name: "Etapa 7 · Campañas y detalle" },
+    { team: "front", st: "prod", name: "Textos en Tolgee" },
+    { team: "front", st: "prod", name: "Arreglo del modo demo" },
+    { team: "front", st: "prod", name: "Guardado en dev (sin subir)" },
+    { team: "camino", st: "falta", name: "Subirlo a dev (con el flag apagado)" },
+    { team: "camino", st: "falta", name: "Probarlo con la API real, cuando esté" },
+    { team: "camino", st: "falta", name: "Prender el flag para los clientes" },
+    { team: "gonzalo", st: "confirmar", name: "Datos que la ERS no trae (precio, Meli+, total, catálogo)" },
+    { team: "gonzalo", st: "confirmar", name: "Cuenta de ML y parámetros que faltan" },
     { team: "gonzalo", st: "confirmar", name: "Formato del avance en vivo y de los errores" },
-    { team: "gonzalo", st: "confirmar", name: "Reglas a confirmar: qué cuenta \"en N\", Meli+, fechas, campañas finalizadas" },
-    { team: "gonzalo", st: "confirmar", name: "Sección de Detalles de publicación: ¿entra en v1?" },
-    { team: "vero", st: "confirmar", name: "Pantallas y estados sin diseño" },
-    { team: "vero", st: "confirmar", name: "Avisos: donde el plan sigue a la ERS y no al Figma" },
+    { team: "gonzalo", st: "confirmar", name: "Reglas: \"en N\", Meli+, fechas y finalizadas" },
+    { team: "gonzalo", st: "confirmar", name: "Detalles de publicación: ¿entra en v1?" },
+    { team: "gonzalo", st: "confirmar", name: "Nuevas: respuestas vacías, fechas y redondeo" },
+    { team: "vero", st: "confirmar", name: "Pantallas sin diseño (hechas con lo que ya existe)" },
+    { team: "vero", st: "confirmar", name: "Donde la app sigue a la ERS y no al Figma" },
     { team: "vero", st: "confirmar", name: "Textos, colores y contraste para revisar" },
   ];
   const statusById = Object.fromEntries(STATUSES.map((s) => [s.id, s]));
@@ -411,13 +443,17 @@
       const n = items.filter((p) => p.st === s.id).length;
       return n ? `<span style="--n:${n};--c:var(--st-${s.id})" title="${s.short}: ${n}"></span>` : "";
     }).join("");
+    /* If every piece of a team shares one status, show it once in the header instead of on each item. */
+    const single = items.every((p) => p.st === items[0].st) ? items[0].st : null;
     card.innerHTML = `
-      <div class="team-head"><div><h3>${team.label}</h3><p class="small muted">${team.sub}</p></div><span class="team-count" aria-label="${items.length} piezas">${items.length}</span></div>
-      <div class="stackbar" role="img" aria-label="${STATUSES.map((s) => `${s.short}: ${items.filter((p) => p.st === s.id).length}`).join(", ")}">${bar}</div>
-      <ul class="team-items">${items.map((p) => `<li><span>${escapeHtml(p.name)}</span>${pill(p.st)}</li>`).join("")}</ul>`;
-    teamsEl.append(card);
+      <div class="team-head"><div><h3>${team.label}</h3><p class="small muted">${team.sub}</p>${single ? `<div class="team-status">${pill(single)}</div>` : ""}</div><span class="team-count" aria-label="${items.length} piezas">${items.length}</span></div>
+      ${single ? "" : `<div class="stackbar" role="img" aria-label="${STATUSES.map((s) => `${s.short}: ${items.filter((p) => p.st === s.id).length}`).join(", ")}">${bar}</div>`}
+      <ul class="team-items">${items.map((p) => `<li><span>${escapeHtml(p.name)}</span>${single ? "" : pill(p.st)}</li>`).join("")}</ul>`;
+    const column = [...teamsEl.querySelectorAll("[data-teams]")].find((col) => col.dataset.teams.split(" ").includes(team.id));
+    (column || teamsEl).append(card);
   });
-  $("#teamsLegend").innerHTML = STATUSES.map((s) => pill(s.id)).join("");
+  const teamsLegend = $("#teamsLegend");
+  if (teamsLegend) teamsLegend.innerHTML = STATUSES.map((s) => pill(s.id)).join("");
 
   /* ---------- Saved checkboxes ---------- */
   $$("input[type=checkbox][data-save]").forEach((box) => {
@@ -458,7 +494,7 @@
 
   /* ---------- Start ---------- */
   const fromHash = Number(location.hash.slice(1));
-  const fromStore = Number(store.get("promos-deck-slide"));
+  const fromStore = Number(store.get("promos-deck-slide-v4"));
   const start = fromHash >= 1 && fromHash <= total ? fromHash - 1 : Number.isInteger(fromStore) ? fromStore : 0;
   deck.classList.add("no-anim");
   go(start);
