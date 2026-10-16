@@ -764,6 +764,9 @@ code {
 .map-card .small {
   color: var(--ink-3);
 }
+.map-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 @media (max-width: 1000px) {
   .map {
     grid-template-columns: repeat(2, minmax(0, 1fr));
