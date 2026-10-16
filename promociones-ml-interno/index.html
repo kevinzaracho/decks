@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Promociones sin vueltas</title>
+    <meta name="description" content="Guía ilustrada de Promociones de Mercado Libre en Grow2on: qué son, cómo se ven hoy en la app (capturas reales del modo demo), cómo se construyó y qué falta para producción." />
+    <link rel="icon" href="img/grow2on_iso.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" /><path d="M20 20l-4.5-4.5" /></symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" /></symbol>
+        <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M9.8 9.6a2.3 2.3 0 1 1 3.2 2.1c-.6.3-1 .8-1 1.5v.4M12 16.6v.1" /></symbol>
+        <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></symbol>
+        <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M5.2 18.8l1.4-1.4M17.4 6.6l1.4-1.4" /></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z" /></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5" /></symbol>
+        <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12" /></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2" /><path d="M4 7l8 6 8-6" /></symbol>
+        <symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8M12 16v4M7 8h6M7 11h10" /></symbol>
+        <symbol id="i-bell" viewBox="0 0 24 24"><path d="M4 18h16M6 18a6 6 0 0 1 12 0M12 12V10M10.5 10h3" /><path d="M16.5 5.5l1.5-1.5M7.5 5.5L6 4" /></symbol>
+        <symbol id="i-store" viewBox="0 0 24 24"><path d="M4.5 11v9h15v-9M3 10l2-5h14l2 5M3 10a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M10 20v-5h4v5" /></symbol>
+        <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5" /></symbol>
+        <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5M12 8v.1" /></symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z" /><path d="M12 10v4M12 17v.1" /></symbol>
+        <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="10" rx="1.5" /><path d="M2.5 19h19" /></symbol>
+        <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z" /></symbol>
+        <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5V5a1.5 1.5 0 0 1 1.5-1.5h7.5l8 8-9 9z" /><circle cx="8" cy="8" r="1.5" /></symbol>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.9l-5.3 2.7 1-5.8-4.2-4.1 5.9-.9z" /></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></symbol>
+        <symbol id="i-edit" viewBox="0 0 24 24"><path d="M7 7H5.5A1.5 1.5 0 0 0 4 8.5v10A1.5 1.5 0 0 0 5.5 20h10a1.5 1.5 0 0 0 1.5-1.5V17" /><path d="M16.5 4.5l3 3L11 16H8v-3z" /></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.5-8.5 4.5-8.5-4.5z" /><path d="M3.5 12l8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5" /></symbol>
+        <symbol id="i-book" viewBox="0 0 24 24"><path d="M4.5 5.5a2 2 0 0 1 2-2h12v15h-12a2 2 0 0 0-2 2z" /><path d="M4.5 20.5v-15" /></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" /><path d="M2.5 20a6.5 6.5 0 0 1 13 0" /><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6 6 0 0 1 3.5 6" /></symbol>
+        <symbol id="i-pointer" viewBox="0 0 24 24"><path d="M6 4l12 7-5 1.5L10.5 18z" /><path d="M13 12.5l4.5 6" /></symbol>
+        <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9.5 3.5h5M10.5 3.5v6L5 18.5a1.5 1.5 0 0 0 1.3 2h11.4a1.5 1.5 0 0 0 1.3-2L13.5 9.5v-6" /><path d="M7.5 14.5h9" /></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path d="M11 18.5h2" /></symbol>
+        <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5M7.5 9.5L12 5l4.5 4.5M5 19h14" /></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" /></symbol>
+      </defs>
+    </svg>
+
+    <div class="deck" id="deck">
+      <header class="topbar">
+        <a class="brand" href="#1" data-go="1">
+          <img src="img/grow2on_iso.svg" alt="" />
+          <span class="brand-name">Promociones sin vueltas</span>
+        </a>
+        <span class="part-chip" id="partChip">Inicio</span>
+        <div class="top-actions">
+          <button class="btn btn-icon" id="btnIndex" type="button" aria-haspopup="dialog">
+            <svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg><span class="lbl">Índice</span>
+          </button>
+          <button class="btn btn-icon" id="btnTheme" type="button" aria-label="Cambiar tema">
+            <svg class="ic" aria-hidden="true"><use id="themeIcon" href="#i-moon"></use></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="viewport" id="viewport">
+        <!-- ================= 1 · Portada ================= -->
+        <section class="slide" id="s-portada" data-part="Inicio" data-title="Portada">
+          <div class="inner split">
+            <div class="stack-md">
+              <img class="cover-logo logo-light rise" src="img/grow2on.svg" alt="Grow2on" />
+              <img class="cover-logo logo-dark rise" src="img/grow2on_dark.svg" alt="Grow2on" />
+              <p class="eyebrow rise" style="--d: 1">Guía desde cero · actualizada el 14 de octubre de 2026</p>
+              <h1 class="rise" style="--d: 1">Promociones de Mercado Libre, <span class="grad-text">sin vueltas</span></h1>
+              <p class="lead rise" style="--d: 2">Qué son, qué puede hacer el usuario y <strong>cómo se ve hoy en la app</strong>, con capturas reales del modo demo. Las <strong>7 etapas están programadas, probadas y subidas a dev</strong>, con el flag apagado: los clientes todavía no ven nada.</p>
+              <div class="cover-actions rise" style="--d: 3">
+                <button class="btn btn-primary btn-xl" type="button" data-go="next">Empezar <svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
+                <button class="btn btn-xl" type="button" data-go="s-columna">Ver cómo se ve hoy</button>
+                <button class="btn btn-xl" type="button" data-go="s-frase">En una frase</button>
+              </div>
+              <p class="cover-hint rise" style="--d: 4"><kbd>←</kbd> <kbd>→</kbd> pasás de hoja · en el celu, deslizá · <kbd>I</kbd> abre el índice · tocá una captura para verla grande</p>
+            </div>
+            <figure class="art rise" style="--d: 2" aria-label="Una publicación de una zapatilla a $160.000 que, sumada a la promoción Día del padre, pasa a costar $128.000 y muestra el estado Oferta Activa">
+              <svg viewBox="0 0 440 400" aria-hidden="true">
+                <defs>
+                  <linearGradient id="gCover" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#4B2A91" />
+                    <stop offset="0.55" stop-color="#EC008C" />
+                    <stop offset="1" stop-color="#F68712" />
+                  </linearGradient>
+                </defs>
+                <rect x="40" y="36" width="300" height="320" rx="24" fill="var(--card)" stroke="var(--line)" stroke-width="2" />
+                <rect x="60" y="56" width="260" height="150" rx="16" fill="url(#gCover)" />
+                <path d="M118 168 c 30 -6 70 -26 92 -48 c 8 -8 22 -6 26 4 l 18 40 c 4 10 -2 18 -14 18 h -116 c -10 0 -12 -12 -6 -14 z" fill="#ffffff" opacity="0.92" />
+                <path d="M150 156 l 8 -14 M168 150 l 8 -14 M186 142 l 8 -14" stroke="#EC008C" stroke-width="3" stroke-linecap="round" />
+                <text x="64" y="240" font-family="Arboria, sans-serif" font-size="18" fill="var(--ink-2)">Zapatilla urbana</text>
+                <text x="64" y="272" font-family="Arboria, sans-serif" font-size="17" fill="var(--ink-3)">$160.000</text>
+                <line x1="62" y1="266" x2="140" y2="266" stroke="var(--ink-3)" stroke-width="2" />
+                <text x="64" y="316" font-family="Arboria, sans-serif" font-size="36" font-weight="700" fill="var(--ink)">$128.000</text>
+                <rect x="232" y="292" width="92" height="26" rx="13" fill="var(--mb-green-bg)" />
+                <text x="278" y="310" text-anchor="middle" font-family="Arboria, sans-serif" font-size="12" font-weight="700" fill="var(--mb-green-ink)">Oferta Activa</text>
+                <g transform="translate(262 18) rotate(10)">
+                  <path d="M0 22 L22 0 H150 a10 10 0 0 1 10 10 V34 a10 10 0 0 1 -10 10 H22 Z" fill="var(--tag)" />
+                  <circle cx="20" cy="22" r="5" fill="var(--card)" />
+                  <text x="92" y="28" text-anchor="middle" font-family="Arboria, sans-serif" font-size="15" font-weight="700" fill="#ffffff">−20% Día del padre</text>
+                </g>
+                <text x="232" y="384" font-family="Caveat, cursive" font-size="28" font-weight="600" fill="var(--ink-2)">¡ya anda en la demo!</text>
+                <path d="M330 362 C 360 340, 366 316, 352 296" fill="none" stroke="var(--ink-3)" stroke-width="2.5" stroke-linecap="round" />
+                <path d="M346 304 l 6 -9 6 10" fill="none" stroke="var(--ink-3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= 2 · Mapa ================= -->
+        <section class="slide" id="s-mapa" data-part="Inicio" data-title="Qué vas a encontrar">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Mapa del recorrido</p>
+              <h2>Qué vas a encontrar</h2>
+              <p class="lead">Cuatro partes, en orden. Tocá cualquiera para saltar directo. Si una palabra te suena rara, al final hay un glosario.</p>
+            </div>
+            <div class="map">
+              <button class="map-card rise" type="button" data-go="s-que-es" style="--d: 1">
+                <span class="map-num">1</span>
+                <h3>La idea</h3>
+                <p class="muted">Qué es una promoción, las palabras clave, los 3 tipos de campaña y las reglas.</p>
+                <span class="small">Hojas 3 a 8</span>
+              </button>
+              <button class="map-card rise" type="button" data-go="s-columna" style="--d: 2">
+                <span class="map-num">2</span>
+                <h3>Cómo se ve hoy</h3>
+                <p class="muted">Pantalla por pantalla, con capturas reales de la app, y cómo probarlo vos en un minuto.</p>
+                <span class="small">Hojas 9 a 21</span>
+              </button>
+              <button class="map-card rise" type="button" data-go="s-fuentes" style="--d: 3">
+                <span class="map-num">3</span>
+                <h3>Cómo se construyó</h3>
+                <p class="muted">De dónde salió, cómo se trabajó cada etapa, las 7 etapas y lo que se arregló en el camino.</p>
+                <span class="small">Hojas 22 a 25</span>
+              </button>
+              <button class="map-card rise" type="button" data-go="s-foto" style="--d: 4">
+                <span class="map-num">4</span>
+                <h3>Cómo está y qué falta</h3>
+                <p class="muted">La foto de hoy, el contrato con el back y lo que falta para producción.</p>
+                <span class="small">Hojas 26 a 32</span>
+              </button>
+            </div>
+            <div class="oneliner rise" style="--d: 5">
+              <p class="eyebrow">Si tenés un minuto</p>
+              <p>Las <strong>7 etapas están terminadas</strong> y probadas en modo demo, en Productos y en el Asistente. Ya está subido a dev, con el flag apagado. Para producción falta que el back haga los cambios del contrato (<a href="#29" data-go="s-back-rompe">hoja 29</a>) y probarlo con la API real. <a href="#34" data-go="s-frase">Ver el resumen</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · Qué es ================= -->
+        <section class="slide" id="s-que-es" data-part="1 · La idea" data-title="¿Qué es una promoción de Mercado Libre?">
+          <div class="inner split">
+            <div class="stack-md">
+              <p class="eyebrow">Parte 1 · La idea</p>
+              <h2>¿Qué es una promoción de Mercado Libre?</h2>
+              <p class="lead">Mercado Libre arma eventos de descuentos —<strong>Día del padre</strong>, <strong>Hot sale</strong>, <strong>Black Friday</strong>— y cada vendedor decide con qué publicaciones se suma y con cuánto descuento.</p>
+              <p>Hasta ahora eso se hacía entrando a Mercado Libre, publicación por publicación. Con esta función, el vendedor lo hace <span class="hl">desde Grow2on</span>: ve en qué promociones está cada publicación, se suma, se sale y ajusta el descuento.</p>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-flag"></use></svg>
+                <p>Es la épica <strong>IDW-2862 "Promociones Meli"</strong>. Va detrás del flag <strong>Promociones de Mercado Libre</strong> (un interruptor): mientras esté apagado, los clientes no ven nada.</p>
+              </div>
+            </div>
+            <figure class="art rise" style="--d: 2" aria-label="Un calendario con cuatro eventos de Mercado Libre: Hot sale, Día del padre, Mundial 2026 y Black Friday">
+              <svg viewBox="0 0 440 360" aria-hidden="true">
+                <rect x="30" y="40" width="380" height="290" rx="22" fill="var(--card)" stroke="var(--line)" stroke-width="2" />
+                <path d="M30 62 a22 22 0 0 1 22 -22 h336 a22 22 0 0 1 22 22 v34 h-380 z" fill="var(--ml)" />
+                <text x="220" y="78" text-anchor="middle" font-family="Arboria, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Calendario de Mercado Libre</text>
+                <circle cx="96" cy="40" r="7" fill="var(--paper-2)" stroke="var(--ink-3)" stroke-width="2" />
+                <circle cx="344" cy="40" r="7" fill="var(--paper-2)" stroke="var(--ink-3)" stroke-width="2" />
+                <g font-family="Arboria, sans-serif">
+                  <rect x="56" y="122" width="150" height="56" rx="14" fill="var(--soft-back)" />
+                  <text x="72" y="146" font-size="13" fill="var(--ink-back)" font-weight="700">MAYO</text>
+                  <text x="72" y="168" font-size="20" font-weight="700" fill="var(--ink)">Hot sale</text>
+                  <rect x="234" y="122" width="150" height="56" rx="14" fill="var(--soft-ask)" />
+                  <text x="250" y="146" font-size="13" fill="var(--ink-ask)" font-weight="700">JUNIO</text>
+                  <text x="250" y="168" font-size="20" font-weight="700" fill="var(--ink)">Día del padre</text>
+                  <rect x="56" y="198" width="150" height="56" rx="14" fill="var(--soft-front)" />
+                  <text x="72" y="222" font-size="13" fill="var(--ink-front)" font-weight="700">JULIO</text>
+                  <text x="72" y="244" font-size="20" font-weight="700" fill="var(--ink)">Mundial 2026</text>
+                  <rect x="234" y="198" width="150" height="56" rx="14" fill="var(--soft-ml)" />
+                  <text x="250" y="222" font-size="13" fill="var(--ink-ml)" font-weight="700">NOVIEMBRE</text>
+                  <text x="250" y="244" font-size="20" font-weight="700" fill="var(--ink)">Black Friday</text>
+                </g>
+                <text x="70" y="300" font-family="Caveat, cursive" font-size="27" font-weight="600" fill="var(--ink-2)">¿con cuáles me sumo y con cuánto?</text>
+              </svg>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= 4 · Palabras clave ================= -->
+        <section class="slide" id="s-palabras" data-part="1 · La idea" data-title="Tres palabras para entender todo">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · La idea</p>
+              <h2>Tres palabras para entender todo</h2>
+              <p class="lead">Si te quedás con estas tres, el resto se entiende solo.</p>
+            </div>
+            <div class="types">
+              <article class="card rise" style="--d: 1">
+                <span class="avatar avatar-ml"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg></span>
+                <h3>Campaña</h3>
+                <span class="nick">también le dicen "promoción"</span>
+                <p class="muted">El evento: "Día del padre", "Hot sale". Tiene nombre, fechas de inicio y fin, y un tipo.</p>
+              </article>
+              <article class="card rise" style="--d: 2">
+                <span class="avatar avatar-front"><svg class="ic" aria-hidden="true"><use href="#i-tag"></use></svg></span>
+                <h3>Oferta</h3>
+                <span class="nick">la unidad de todo</span>
+                <p class="muted">Una publicación sumada (o que se puede sumar) a una campaña. Todo lo que el usuario <strong>activa, modifica o da de baja</strong> es una oferta.</p>
+              </article>
+              <article class="card rise" style="--d: 3">
+                <span class="avatar avatar-back"><svg class="ic" aria-hidden="true"><use href="#i-star"></use></svg></span>
+                <h3>Meli+</h3>
+                <span class="nick">un descuento extra</span>
+                <p class="muted">Un descuento más alto, solo para compradores con suscripción <strong>Meli+</strong> (en la app, "nivel 3 a 6"). Existe solo en las campañas del vendedor.</p>
+              </article>
+            </div>
+            <div class="note">
+              <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+              <p>Una misma publicación puede estar en <strong>varias campañas a la vez</strong>: tiene una oferta en cada una. Si deja una, vuelve a su precio normal o al de otra oferta que tenga activa.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · Tipos de campaña ================= -->
+        <section class="slide" id="s-tipos" data-part="1 · La idea" data-title="Tres tipos de campaña">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · La idea</p>
+              <h2>Tres tipos de campaña (y solo estos tres)</h2>
+              <p class="lead">Mercado Libre tiene más tipos, pero esta primera versión maneja estos. La diferencia clave: <span class="hl">quién la arma y quién pone el descuento</span>.</p>
+            </div>
+            <div class="types">
+              <article class="card type-card rise" style="--d: 1; --c: var(--tag)">
+                <span class="code">SELLER_CAMPAIGN</span>
+                <h3>Creada por el seller</h3>
+                <dl>
+                  <div><dt>Quién la arma</dt><dd>El vendedor.</dd></div>
+                  <div><dt>Quién pone el descuento</dt><dd>El vendedor, dentro de un rango: "Ofrecé entre un 5% y un 10%".</dd></div>
+                  <div><dt>Qué se puede hacer</dt><dd>Sumarse eligiendo el %, mejorarlo después, agregar Meli+, y editar o eliminar la campaña.</dd></div>
+                </dl>
+                <span class="chip chip-ask">La más completa</span>
+              </article>
+              <article class="card type-card rise" style="--d: 2; --c: var(--ml)">
+                <span class="code">SMART</span>
+                <h3>Cofondeada automatizada</h3>
+                <dl>
+                  <div><dt>Quién la arma</dt><dd>Mercado Libre.</dd></div>
+                  <div><dt>Quién pone el descuento</dt><dd>Los dos: una parte el vendedor y otra Mercado Libre. Ej.: 7,84% vos + 0,16% ML.</dd></div>
+                  <div><dt>Qué se puede hacer</dt><dd>Sumarse (viene armada: solo mirás y confirmás) o dejar de participar.</dd></div>
+                </dl>
+                <span class="chip">Solo sumarse o salir</span>
+              </article>
+              <article class="card type-card rise" style="--d: 3; --c: var(--front)">
+                <span class="code">PRE_NEGOTIATED</span>
+                <h3>Pre-acordada por publicación</h3>
+                <dl>
+                  <div><dt>Quién la arma</dt><dd>Un agente de Mercado Libre, que la acordó con el vendedor.</dd></div>
+                  <div><dt>Quién pone el descuento</dt><dd>Viene acordado con el agente: el vendedor solo lo acepta. Ej.: 10% a cargo ML.</dd></div>
+                  <div><dt>Qué se puede hacer</dt><dd>Sumarse (acepta lo acordado) o dejar de participar.</dd></div>
+                </dl>
+                <span class="chip">Solo sumarse o salir</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · Vida de una oferta ================= -->
+        <section class="slide" id="s-vida" data-part="1 · La idea" data-title="La vida de una oferta">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · La idea</p>
+              <h2>La vida de una oferta, paso a paso</h2>
+              <p class="lead">Seguí a la zapatilla en "Día del padre". Tocá los círculos o usá los botones.</p>
+            </div>
+            <div class="journey">
+              <div class="jmap">
+                <svg viewBox="0 0 1000 170" role="list" aria-label="Recorrido en 5 pasos">
+                  <line x1="100" y1="64" x2="900" y2="64" stroke="var(--line)" stroke-width="6" stroke-linecap="round" />
+                  <line id="jline" x1="100" y1="64" x2="100" y2="64" stroke="var(--tag)" stroke-width="6" stroke-linecap="round" />
+                  <g class="jnode" role="listitem" tabindex="0" aria-label="Paso 1: candidata">
+                    <circle cx="100" cy="64" r="40" /><use href="#i-search" x="80" y="44" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <text x="100" y="140" text-anchor="middle">Candidata</text>
+                  </g>
+                  <g class="jnode" role="listitem" tabindex="0" aria-label="Paso 2: la elegís">
+                    <circle cx="300" cy="64" r="40" /><use href="#i-pointer" x="280" y="44" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <text x="300" y="140" text-anchor="middle">La elegís</text>
+                  </g>
+                  <g class="jnode" role="listitem" tabindex="0" aria-label="Paso 3: confirmás">
+                    <circle cx="500" cy="64" r="40" /><use href="#i-screen" x="480" y="44" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <text x="500" y="140" text-anchor="middle">Confirmás</text>
+                  </g>
+                  <g class="jnode" role="listitem" tabindex="0" aria-label="Paso 4: participa">
+                    <circle cx="700" cy="64" r="40" /><use href="#i-check" x="680" y="44" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <text x="700" y="140" text-anchor="middle">Participa</text>
+                  </g>
+                  <g class="jnode" role="listitem" tabindex="0" aria-label="Paso 5: se baja">
+                    <circle cx="900" cy="64" r="40" /><use href="#i-x" x="880" y="44" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <text x="900" y="140" text-anchor="middle">Se baja</text>
+                  </g>
+                </svg>
+              </div>
+              <div class="card step-panel" aria-live="polite">
+                <div class="stack-sm">
+                  <p class="eyebrow" id="jCount">Paso 1 de 5</p>
+                  <div class="jstep stack-sm">
+                    <h3>Aparece como candidata</h3>
+                    <p class="muted">Mercado Libre le ofrece a la publicación sumarse a "Día del padre". La fila dice <span class="mbadge mb-gray">Oferta Candidata</span> y tiene el botón <strong>Participar</strong>.</p>
+                    <span class="chip">Todavía no participa</span>
+                  </div>
+                  <div class="jstep stack-sm" hidden>
+                    <h3>El usuario la elige</h3>
+                    <p class="muted">Toca <strong>Participar</strong> en esa fila. Si quiere sumar varias de una, las tilda y usa la barra de arriba (mínimo 2; las de campañas del seller, de a una).</p>
+                    <span class="chip chip-front">En Productos o en el Asistente</span>
+                  </div>
+                  <div class="jstep stack-sm" hidden>
+                    <h3>Confirma en un panel lateral</h3>
+                    <p class="muted">Se abre un panel a la derecha con los datos de la promoción. Si es <strong>del seller</strong>, elige el descuento. Si es <strong>de Mercado Libre</strong>, solo ve el desglose y confirma.</p>
+                    <a class="chip chip-ask" href="#11" data-go="s-participar">Hoja 11 lo muestra</a>
+                  </div>
+                  <div class="jstep stack-sm" hidden>
+                    <h3>Ya participa</h3>
+                    <p class="muted">Si la campaña todavía no empezó queda <span class="mbadge mb-blue">Oferta Programada</span>; si ya está en curso, <span class="mbadge mb-green">Oferta Activa</span>. Aparece el aviso <strong>¡Listo!</strong> y la tabla se actualiza sola.</p>
+                    <span class="chip chip-front">Se refresca todo: popup, Asistente y columna</span>
+                  </div>
+                  <div class="jstep stack-sm" hidden>
+                    <h3>Se baja (si quiere)</h3>
+                    <p class="muted"><strong>Deja de participar</strong>, siempre con una confirmación antes (lo pide la ERS). La publicación vuelve a su precio normal, o al de otra oferta que tenga activa.</p>
+                    <span class="chip">Siempre con confirmación</span>
+                  </div>
+                </div>
+                <div class="step-controls">
+                  <button class="btn" id="jPrev" type="button"><svg class="ic" aria-hidden="true"><use href="#i-left"></use></svg><span class="lbl">Anterior</span></button>
+                  <button class="btn btn-primary" id="jNext" type="button"><span class="lbl">Siguiente paso</span><svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · Dos estados ================= -->
+        <section class="slide" id="s-estados" data-part="1 · La idea" data-title="Dos estados que no hay que mezclar">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · La idea</p>
+              <h2>Ojo: hay dos estados que no hay que mezclar</h2>
+              <p class="lead">La oferta tiene su estado y la campaña tiene el suyo. Se parecen, pero <span class="hl">deciden cosas distintas</span>.</p>
+            </div>
+            <div class="states two-states">
+              <article class="card rise" style="--d: 1">
+                <span class="avatar avatar-front"><svg class="ic" aria-hidden="true"><use href="#i-tag"></use></svg></span>
+                <h3>El estado de la oferta</h3>
+                <div class="badge-row">
+                  <span class="mbadge mb-gray">Oferta Candidata</span>
+                  <span class="mbadge mb-blue">Oferta Programada</span>
+                  <span class="mbadge mb-green">Oferta Activa</span>
+                </div>
+                <p class="muted">Dice si <strong>la publicación</strong> está sumada. Decide qué botón aparece: <strong>Participar</strong> o <strong>Deja de participar</strong>.</p>
+              </article>
+              <article class="card rise" style="--d: 2">
+                <span class="avatar avatar-ml"><svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg></span>
+                <h3>El estado de la campaña</h3>
+                <div class="badge-row">
+                  <span class="mbadge mb-blue">Programada</span>
+                  <span class="mbadge mb-green">Activa</span>
+                  <span class="mbadge mb-gray">Finalizada</span>
+                </div>
+                <p class="muted">Dice si <strong>el evento</strong> ya empezó o terminó. Decide qué se puede tocar del Meli+, si se puede cambiar la fecha de inicio y si aparece el lápiz para editarla. La ERS dice "Pendiente"; la app, "Programada".</p>
+              </article>
+            </div>
+            <p class="example rise" style="--d: 3">Ejemplo: una oferta puede ser <strong>Candidata</strong> en una campaña <strong>Activa</strong>. La campaña ya arrancó y la publicación todavía no se sumó.</p>
+          </div>
+        </section>
+
+        <!-- ================= 8 · Reglas ================= -->
+        <section class="slide" id="s-reglas" data-part="1 · La idea" data-title="Las reglas del juego">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · La idea</p>
+              <h2>Las reglas del juego</h2>
+              <p class="lead">Si el usuario rompe una, la pantalla no lo deja confirmar y le explica por qué. Los mensajes de abajo son los que muestra la app hoy.</p>
+            </div>
+            <div class="rules rules-3">
+              <article class="card rise" style="--d: 1">
+                <div class="rule-visual">
+                  <span class="num-chip num-ok"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>7%</span>
+                  <span class="num-chip num-bad">15%</span>
+                  <span class="hand">rango 5 a 10%</span>
+                </div>
+                <h3>El descuento va dentro del rango</h3>
+                <p class="muted">En las campañas del seller, Mercado Libre fija un mínimo y un máximo.</p>
+                <p class="err-line"><svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>El descuento tiene que estar entre 5% y 10%</p>
+              </article>
+              <article class="card rise" style="--d: 2">
+                <div class="rule-visual">
+                  <span class="num-chip num-ok"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>de 7% a 9%</span>
+                  <span class="num-chip num-bad">de 7% a 5%</span>
+                </div>
+                <h3>Modificar es mejorar</h3>
+                <p class="muted">Una oferta que ya participa solo puede bajar más su precio, nunca subirlo.</p>
+                <p class="err-line"><svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>El nuevo descuento tiene que ser mayor al actual</p>
+              </article>
+              <article class="card rise" style="--d: 3">
+                <div class="rule-visual">
+                  <span class="num-chip num-ok"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Meli+ $115.000</span>
+                  <span class="hand">&lt; oferta $148.800</span>
+                </div>
+                <h3>Meli+ siempre más barato</h3>
+                <p class="muted">El Meli+ es un descuento más alto: su precio tiene que ser menor que el de la oferta general.</p>
+                <p class="err-line"><svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>El precio Meli+ tiene que ser menor al precio de la oferta</p>
+              </article>
+              <article class="card rise" style="--d: 4">
+                <div class="rule-visual">
+                  <span class="mbadge mb-blue">Programada</span><span class="hand">agregar o quitar</span>
+                  <span class="mbadge mb-green">Activa</span><span class="hand">solo mejorar</span>
+                </div>
+                <h3>Meli+ depende de si la campaña empezó</h3>
+                <p class="muted">Antes de que arranque se agrega y se quita. Una vez que arrancó, solo se mejora.</p>
+                <p class="hint-line"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>La promoción ya empezó: no se puede agregar descuento Meli+.</p>
+              </article>
+              <article class="card rise" style="--d: 5">
+                <div class="rule-visual">
+                  <span class="num-chip num-ok"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>2 o más</span>
+                  <span class="num-chip num-bad">sumar + salir</span>
+                </div>
+                <h3>Varias a la vez: mínimo 2</h3>
+                <p class="muted">Para sumarse o para salirse. Las del seller se suman de a una, porque hay que elegir el % de cada una.</p>
+                <p class="hint-line"><svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>Sumarse y salirse no se mezclan: al tildar una, las de la otra acción quedan grises.</p>
+              </article>
+              <article class="card rise" style="--d: 6">
+                <div class="rule-visual">
+                  <span class="num-chip num-ok"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>14 días</span>
+                  <span class="num-chip num-bad">15 días</span>
+                </div>
+                <h3>Fechas de una campaña del seller</h3>
+                <p class="muted">Hasta 14 días, en un solo campo de rango. Si ya empezó, el inicio queda fijo y el fin se elige entre mañana y el día 14.</p>
+                <p class="err-line"><svg class="ic" aria-hidden="true"><use href="#i-alert"></use></svg>La promoción puede durar hasta 14 días</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · Productos: columna ================= -->
+        <section class="slide" id="s-columna" data-part="2 · Cómo se ve hoy" data-title="En Productos: la columna">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>En Productos: la columna Promociones</h2>
+              <p class="lead">Solo en las vinculaciones con Mercado Libre. Tocando una etiqueta se abre el popup de la hoja siguiente.</p>
+            </div>
+            <figure class="shot rise" style="--d: 1">
+              <img srcset="shots/b1-columna.webp 2x" alt="Fila de una vinculación con Mercado Libre en Productos: a la derecha, la columna Promociones con dos etiquetas, en 6 promociones y 4 promociones disponibles" decoding="async" />
+              <figcaption><b>Producto de Prueba 1</b> · la publicación aparece en 6 promociones y todavía puede sumarse a 4.</figcaption>
+            </figure>
+            <div class="states states-3">
+              <div class="card rise" style="--d: 2">
+                <figure class="shot shot-plain"><img srcset="shots/col-sin-disponibles.webp 2x" alt="Etiquetas en 3 promociones y 0 promociones disponibles" decoding="async" /></figure>
+                <p class="muted"><strong>Ya está en todas:</strong> "0 promociones disponibles".</p>
+              </div>
+              <div class="card rise" style="--d: 3">
+                <figure class="shot shot-plain"><img srcset="shots/col-sin.webp 2x" alt="Etiqueta Sin promociones" decoding="async" /></figure>
+                <p class="muted"><strong>No tiene ninguna:</strong> "Sin promociones", y el popup se abre vacío.</p>
+              </div>
+              <div class="card rise" style="--d: 4">
+                <p class="muted">Como pide la ERS, "en 6" cuenta también las disponibles. Sin cuentas de Mercado Libre o con el flag apagado, la tabla queda <strong>exactamente igual que antes</strong>.</p>
+              </div>
+            </div>
+            <p class="zoom-hint">Tocá cualquier captura para verla grande.</p>
+          </div>
+        </section>
+
+        <!-- ================= 10 · Productos: popup ================= -->
+        <section class="slide" id="s-popup" data-part="2 · Cómo se ve hoy" data-title="En Productos: el popup">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Tocás la etiqueta y se abre el popup</h2>
+              <p class="lead">Todas sus promociones: en las que está y a las que se puede sumar.</p>
+            </div>
+            <figure class="shot shot-tall rise" style="--d: 1; --mh: min(48vh, 440px)">
+              <img srcset="shots/b4-popup.webp 2x" alt="Popup Promociones en que participa o puede participar esta publicación, con seis filas: Día del padre, Cyber Monday, Hot sale, Mundial 2026, Black Friday y Semana del hogar, con sus botones Participar o Deja de participar" decoding="async" />
+              <div class="shot-legend">
+                <span><b>Origen</b>"Seller" si la armó el vendedor; "Mercado Libre" si la armó ML.</span>
+                <span><b>Descuento</b>Cuánto y quién lo pone: "15% off a cargo ML · 5% a tu cargo".</span>
+                <span><b>Precio final</b>En las del seller sin sumar va "-": falta elegir el %.</span>
+                <span><b>Acción y lápiz</b>El lápiz (modificar) sale solo en las del seller en las que ya participa.</span>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= 11 · Participar ================= -->
+        <section class="slide" id="s-participar" data-part="2 · Cómo se ve hoy" data-title="Participar: el panel de confirmación">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Participar: un panel para confirmar</h2>
+            </div>
+            <div class="trio">
+              <div class="side-note">
+                <p class="lead">Se abre a la derecha. Hay dos versiones, según quién armó la campaña.</p>
+                <div class="note">
+                  <svg class="ic" aria-hidden="true"><use href="#i-edit"></use></svg>
+                  <p><strong>Del seller:</strong> el usuario escribe el % o el precio y el otro se calcula solo (8% → $ 147.200). Si se sale del rango, no deja confirmar.</p>
+                </div>
+                <div class="note">
+                  <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>
+                  <p><strong>De Mercado Libre:</strong> solo lectura. Muestra cuánto pone cada uno y el precio final, y se confirma.</p>
+                </div>
+                <p class="small muted">El Meli+ se ve bloqueado porque esa campaña ya empezó (es una regla). En Productos el panel es naranja y en el Asistente azul: sale solo del color de cada sección.</p>
+              </div>
+              <figure class="shot shot-tall rise" style="--d: 2">
+                <img srcset="shots/drawer-seller.webp 2x" alt="Panel Confirmar participación en promoción para Día del padre, campaña del seller: descuento general 8 por ciento, precio de la oferta 147.200 pesos y Meli+ bloqueado" decoding="async" />
+                <figcaption><b>Del seller</b> · editable</figcaption>
+              </figure>
+              <figure class="shot shot-tall rise" style="--d: 3">
+                <img srcset="shots/drawer-ml.webp 2x" alt="Panel Confirmar participación para Black Friday, de Mercado Libre: descuento de 32.000 pesos, 8.000 a tu cargo y 24.000 a cargo de Mercado Libre, precio final 128.000 pesos" decoding="async" />
+                <figcaption><b>De Mercado Libre</b> · solo lectura</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · Confirmaciones y avisos ================= -->
+        <section class="slide" id="s-avisos" data-part="2 · Cómo se ve hoy" data-title="Confirmaciones y avisos">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Confirmaciones y avisos</h2>
+              <p class="lead">Salir siempre se confirma. Después de cada acción aparece un aviso.</p>
+            </div>
+            <div class="shots">
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 1">
+                  <img srcset="shots/confirm-baja.webp 2x" alt="Confirmación: ¿Dejar de participar de la promoción? La publicación dejará de participar de la promoción Hot sale. Botones Cancelar y Confirmar" decoding="async" />
+                  <figcaption><b>Antes de salir</b> · Escape cierra solo la confirmación: el popup sigue abierto.</figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 2; --mh: 130px">
+                  <img srcset="shots/popup-error.webp 2x" alt="Popup con el mensaje No pudimos cargar las promociones y el botón Reintentar" decoding="async" />
+                  <figcaption><b>No cargó</b> · un mensaje y el botón Reintentar.</figcaption>
+                </figure>
+              </div>
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 3">
+                  <img srcset="shots/toast-listo.webp 2x" alt="Aviso ¡Listo! La publicación está participando de la promoción BLACK FRIDAY" decoding="async" />
+                  <figcaption><b>Salió bien</b> · con la publicación, el SKU y la promoción.</figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 4">
+                  <img srcset="shots/toast-error.webp 2x" alt="Aviso de error: No pudimos completar la acción. Precio mínimo fuera de rango. Reintentar" decoding="async" />
+                  <figcaption><b>Mercado Libre lo rechazó</b> · el panel queda abierto para reintentar.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · Masivo ================= -->
+        <section class="slide" id="s-masivo" data-part="2 · Cómo se ve hoy" data-title="Varias a la vez">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Varias a la vez, con el avance en vivo</h2>
+              <p class="lead">Mínimo 2 y una acción masiva por vez. El progreso flota abajo a la derecha y <span class="hl">sigue aunque cierres el popup</span> o cambies de sección.</p>
+            </div>
+            <div class="trio trio-even">
+              <figure class="shot rise" style="--d: 1">
+                <img srcset="shots/masivo-seleccion.webp 2x" alt="Popup con Mundial 2026 y Black Friday tildadas, la barra dice 2 promociones seleccionadas y las filas para salirse quedan grises" decoding="async" />
+                <figcaption><b>1 · Tildás.</b> Al tildar una para sumarse, las que son para salirse quedan grises (y al revés).</figcaption>
+              </figure>
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 2">
+                  <img srcset="shots/confirm-masivo.webp 2x" alt="Confirmación: ¿Participar de las promociones? La publicación participará de las 2 promociones que seleccionaste. El precio de venta será 128.000 pesos" decoding="async" />
+                  <figcaption><b>2 · Confirmás.</b> Te dice cómo queda el precio.</figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 3">
+                  <img srcset="shots/widget-progreso.webp 2x" alt="Aviso flotante: Confirmando participación, 1 de 2 ofertas, barra de progreso a la mitad, 0 exitosas y 1 con error" decoding="async" />
+                  <figcaption><b>3 · Mirás el avance,</b> oferta por oferta.</figcaption>
+                </figure>
+              </div>
+              <figure class="shot rise" style="--d: 4">
+                <img srcset="shots/widget-resultado.webp 2x" alt="Aviso de resultado: Activación de ofertas, 1 exitosa y 1 con error, y la tabla con la oferta que no se pudo activar y su motivo" decoding="async" />
+                <figcaption><b>4 · Ves el resultado:</b> cuáles fallaron y por qué. Si la respuesta se corta, lo marca como incompleto.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · Modificar y Meli+ ================= -->
+        <section class="slide" id="s-modificar" data-part="2 · Cómo se ve hoy" data-title="Modificar una oferta y el Meli+">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Modificar una oferta y el descuento Meli+</h2>
+              <p class="lead">Con el lápiz, solo en campañas del seller. El descuento solo se puede mejorar, y el Meli+ cambia según si la campaña ya empezó. Son 4 casos y los 4 andan.</p>
+            </div>
+            <div class="shots shots-4">
+              <figure class="shot rise" style="--d: 1">
+                <img srcset="shots/meli-agregar.webp 2x" alt="Sección Precio del panel Modificar oferta con el botón Agregar Descuento Meli+" decoding="async" />
+                <figcaption><b>No empezó, sin Meli+:</b> botón para agregarlo.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 2">
+                <img srcset="shots/meli-eliminar.webp 2x" alt="Sección Precio con descuento 5 por ciento, precio 18.110,40 pesos, Meli+ 16,07 por ciento a 16.000 pesos y el botón Eliminar Descuento Meli+" decoding="async" />
+                <figcaption><b>No empezó, con Meli+:</b> se edita o se elimina.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 3">
+                <img srcset="shots/meli-mejorar.webp 2x" alt="Sección Precio con la campaña activa y el Meli+ cargado, con el aviso: solo podés mejorar el descuento Meli+" decoding="async" />
+                <figcaption><b>Ya empezó, con Meli+:</b> solo se puede mejorar.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 4">
+                <img srcset="shots/meli-bloqueado.webp 2x" alt="Sección Precio con la campaña activa, sin Meli+, campos bloqueados y el aviso: no se puede agregar descuento Meli+" decoding="async" />
+                <figcaption><b>Ya empezó, sin Meli+:</b> bloqueado, con el aviso.</figcaption>
+              </figure>
+            </div>
+            <div class="note">
+              <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+              <p>Se manda solo lo que cambió. Los precios con centavos se ven completos ("$ 18.110,40"). Si la API no manda el Meli+ actual de una oferta, el panel lo avisa y deja modificar solo el descuento general.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Asistente ================= -->
+        <section class="slide" id="s-asistente" data-part="2 · Cómo se ve hoy" data-title="En el Asistente Grow de Meli">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>En el Asistente: una pestaña nueva</h2>
+              <p class="lead">Desde el lado de las campañas: todas las de cada cuenta de Mercado Libre, con sus publicaciones adentro.</p>
+            </div>
+            <figure class="shot shot-crop rise" style="--d: 1; --mh: min(44vh, 420px)">
+              <img srcset="shots/a3-tarjeta-abierta.webp 2x" alt="Pestaña Promociones del Asistente: barra de selección, selector SKU o Código en Meli, buscador, filtro de integraciones y la tarjeta Día del padre abierta con sus publicaciones y botones Participar" decoding="async" />
+              <div class="shot-legend">
+                <span><b>Una tarjeta por campaña y cuenta</b>Con su estado: Activa, Programada o Finalizada.</span>
+                <span><b>Cerradas hasta que las tocás</b>Al abrirla trae sus publicaciones de a 50 (hoja 16).</span>
+                <span><b>Las mismas acciones</b>Participar, dejar, modificar y varias a la vez, incluso entre cuentas.</span>
+                <span><b>El lápiz edita la campaña</b>Solo en las del seller que no terminaron (hoja 17).</span>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Buscar y Mostrar más ================= -->
+        <section class="slide" id="s-buscar" data-part="2 · Cómo se ve hoy" data-title="Buscar y Mostrar más">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Buscar por SKU o código, y "Mostrar más"</h2>
+              <p class="lead">La búsqueda trae solo las campañas donde aparece esa publicación, ya abiertas.</p>
+            </div>
+            <figure class="shot shot-crop rise" style="--d: 1; --mh: min(44vh, 420px)">
+              <img srcset="shots/busqueda-sku.webp 2x" alt="Búsqueda por SKU 777-1044 en todas las integraciones: aviso amarillo No pudimos cargar las promociones de WooCommerce con botón Reintentar, y las campañas Día del padre y Cyber Monday abiertas con las publicaciones de ese SKU" decoding="async" />
+              <div class="shot-legend">
+                <span><b>SKU o Código en Meli</b>Y el filtro de integraciones: una cuenta o todas juntas.</span>
+                <span><b>Si una cuenta no responde</b>Avisa cuál y deja reintentar, sin tapar lo que llegó. El texto ahora es oscuro: el naranja no se leía.</span>
+                <span><b>Campañas grandes, de a 50</b>Con "Mostrar más": en "Liquidación de stock", 50, 100 y 137.</span>
+                <span><b>Si la página vence</b>A los 5 minutos: la lista se recarga desde el principio, con un aviso.</span>
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Campañas ================= -->
+        <section class="slide" id="s-campana" data-part="2 · Cómo se ve hoy" data-title="Editar o eliminar una campaña">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>Editar o eliminar una campaña del seller</h2>
+            </div>
+            <div class="trio">
+              <div class="side-note">
+                <p class="lead">Con el lápiz de la tarjeta, solo en campañas del seller que no terminaron.</p>
+                <div class="note">
+                  <svg class="ic" aria-hidden="true"><use href="#i-calendar"></use></svg>
+                  <p><strong>Nombre y fechas,</strong> hasta 14 días, en un solo campo de rango. Si ya empezó, el inicio queda fijo y cada click elige el fin, entre mañana y el día 14.</p>
+                </div>
+                <div class="note">
+                  <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>
+                  <p><strong>Se manda solo lo que cambió.</strong> Al guardar, la tarjeta se actualiza sin recargar.</p>
+                </div>
+                <div class="note note-warn">
+                  <svg class="ic" aria-hidden="true"><use href="#i-question"></use></svg>
+                  <p>Si la API responde "OK" sin contenido, hoy la app lo toma como error. Está en el <a href="#30" data-go="s-contrato">contrato con el back</a>.</p>
+                </div>
+              </div>
+              <figure class="shot shot-tall rise" style="--d: 2">
+                <img srcset="shots/drawer-campana-calendario.webp 2x" alt="Panel Modificar promoción de Día del padre: nombre editable y vigencia 11/10/2026 – 24/10/2026 en un solo campo, con el calendario de octubre 2026 abierto: el 11 marcado como inicio fijo, del 12 al 16 atenuados y del 17 al 24 habilitados, con el 24 como fin" decoding="async" />
+                <figcaption><b>Modificar promoción</b> · un campo de rango: si ya empezó, el inicio queda fijo y cada click elige el fin, desde mañana.</figcaption>
+              </figure>
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 3">
+                  <img srcset="shots/confirm-eliminar.webp 2x" alt="Confirmación: ¿Eliminar la promoción? La promoción Día del padre se va a finalizar en Mercado Libre y sus ofertas dejan de aplicar. Botón Eliminar en rojo" decoding="async" />
+                  <figcaption><b>Eliminar</b> · siempre con confirmación y el botón en rojo.</figcaption>
+                </figure>
+                <p class="small muted">Escape cierra primero la confirmación; un segundo Escape cierra el panel.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 18 · Detalle ================= -->
+        <section class="slide" id="s-detalle" data-part="2 · Cómo se ve hoy" data-title="Detalles de publicación">
+          <div class="inner split">
+            <div class="stack-md">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>En Detalles de publicación: sus promociones</h2>
+              <p class="lead">En Productos, el menú <strong>⋯</strong> de una vinculación con Mercado Libre → <strong>Detalles de publicación</strong>. Al final hay una sección nueva.</p>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-book"></use></svg>
+                <p>Muestra las promociones en las que <strong>participa</strong> (no las disponibles): nombre, estado de la oferta ("Oferta Programada" u "Oferta Activa"), origen y vigencia. Se actualiza sola cuando te sumás, te salís o eliminás una campaña.</p>
+              </div>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+                <p>Está en el Figma y <strong>no en la ERS</strong>: entra en esta versión.</p>
+              </div>
+            </div>
+            <figure class="shot rise" style="--d: 2">
+              <img srcset="shots/detalle-seccion.webp 2x" alt="Sección Promociones Mercado Libre del panel Detalles de publicación: Hot sale y Semana del hogar, cada una con el badge Oferta Activa, origen y vigencia" decoding="async" />
+              <figcaption><b>Promociones Mercado Libre</b> · la última sección del panel Detalles de publicación.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= 19 · Celu y oscuro ================= -->
+        <section class="slide" id="s-celu" data-part="2 · Cómo se ve hoy" data-title="En el celu y en modo oscuro">
+          <div class="inner">
+            <div class="head">
+              <div class="head-row"><p class="eyebrow">Parte 2 · Cómo se ve hoy</p><span class="live">Captura real · modo demo</span></div>
+              <h2>En el celu y en modo oscuro</h2>
+              <p class="lead">Todo se probó también en un celular y con el modo oscuro de la app.</p>
+            </div>
+            <div class="mix">
+              <div class="phones">
+                <figure class="shot rise" style="--d: 1">
+                  <img srcset="shots/mobile-asistente.webp 2x" alt="Pestaña Promociones en el celular: título, barra de selección, buscador y filtro" decoding="async" />
+                  <figcaption><b>Pestaña</b></figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 2">
+                  <img srcset="shots/mobile-tarjeta.webp 2x" alt="Tarjeta Hot sale abierta en el celular, con cada publicación en dos líneas y el botón Deja de participar" decoding="async" />
+                  <figcaption><b>Tarjeta abierta</b></figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 3">
+                  <img srcset="shots/mobile-drawer.webp 2x" alt="Panel Confirmar participación en el celular, a pantalla completa con flecha para volver" decoding="async" />
+                  <figcaption><b>Panel</b></figcaption>
+                </figure>
+              </div>
+              <div class="shot-stack">
+                <figure class="shot shot-short rise" style="--d: 4; --mh: min(20vh, 170px)">
+                  <img srcset="shots/dark-popup.webp 2x" alt="Popup de promociones de Productos en modo oscuro" decoding="async" />
+                  <figcaption><b>Modo oscuro</b> · el popup de Productos.</figcaption>
+                </figure>
+                <figure class="shot shot-crop shot-short rise" style="--d: 5; --mh: min(20vh, 170px)">
+                  <img srcset="shots/dark-asistente.webp 2x" alt="Pestaña Promociones del Asistente en modo oscuro, con la tarjeta Cyber Monday abierta" decoding="async" />
+                  <figcaption><b>Modo oscuro</b> · la pestaña del Asistente.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 20 · Probalo vos ================= -->
+        <section class="slide" id="s-probalo" data-part="2 · Cómo se ve hoy" data-title="Probalo vos en un minuto">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 2 · Cómo se ve hoy</p>
+              <h2>Probalo vos en un minuto</h2>
+              <p class="lead">Sin tocar código, en el dev (integrador.dev.grow2on.com) o en tu localhost, con datos de prueba.</p>
+            </div>
+            <div class="mix">
+              <ol class="steps">
+                <li><span>Abajo a la izquierda, tocá la <strong>nube</strong> → <strong>Datos simulados</strong>.<span class="d">Así todo sale de los datos de prueba y no se toca la API real.</span></span></li>
+                <li><span>Tocá <strong>&lt;/&gt; Configuración avanzada</strong> → <strong>Funcionalidades</strong> y prendé <strong>Promociones de Mercado Libre</strong>.<span class="d">Es el flag de esta función. Está arriba de todo.</span></span></li>
+                <li><span>Recargá e iniciá sesión con <strong>cualquier mail y contraseña</strong>.<span class="d">En modo demo cualquier dato entra.</span></span></li>
+                <li><span>Andá a <strong>Productos</strong> y abrí <strong>Producto de Prueba 1</strong>: en la vinculación con Mercado Libre está la columna Promociones.</span></li>
+                <li><span>Para el Asistente: botón <strong>Asistente Grow de Meli → Promociones</strong>, en Productos o desde el inicio del Asistente.</span></li>
+              </ol>
+              <div class="shot-stack">
+              <div class="shots" style="--cols: 2">
+                <figure class="shot rise" style="--d: 1">
+                  <img srcset="shots/origen-datos.webp 2x" alt="Menú Origen de datos con las opciones Backend real y Datos simulados, esta última marcada" decoding="async" />
+                  <figcaption><b>Paso 1</b> · la nube.</figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 2">
+                  <img srcset="shots/flag-panel.webp 2x" alt="Panel Configuración avanzada, pestaña Funcionalidades, con el flag Promociones de Mercado Libre prendido" decoding="async" />
+                  <figcaption><b>Paso 2</b> · el flag.</figcaption>
+                </figure>
+              </div>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+                <p>Lo que hagas en la demo dura hasta que recargues la página: después vuelve todo al estado inicial. En la hoja siguiente, qué probar en cada producto.</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 21 · Qué probar ================= -->
+        <section class="slide" id="s-casos" data-part="2 · Cómo se ve hoy" data-title="Qué probar en cada producto">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 2 · Cómo se ve hoy</p>
+              <h2>Qué probar en cada producto de la demo</h2>
+              <p class="lead">Los datos de prueba están armados para que <span class="hl">cada caso se vea desde la pantalla</span>, sin preparar nada.</p>
+            </div>
+            <div class="cases-grid">
+              <div class="case rise" style="--d: 1"><span class="where-k">Producto de Prueba 1<small>Productos</small></span><span class="see">La tabla completa: candidatas del seller y de ML, ofertas activas y el lápiz. Para participar, dejar y modificar.</span></div>
+              <div class="case rise" style="--d: 2"><span class="where-k">Producto de Prueba 2<small>Productos</small></span><span class="see">Meli+: "Día del padre" ya empezó (solo mejorar) y "Cyber Monday" no empezó (se puede agregar).</span></div>
+              <div class="case rise" style="--d: 3"><span class="where-k">Producto de Prueba 3<small>Productos</small></span><span class="see">Precios con centavos y un Meli+ que se puede eliminar ("Cyber Monday").</span></div>
+              <div class="case rise" style="--d: 4"><span class="where-k">Producto de Prueba 4 · 6<small>Productos</small></span><span class="see">"Sin promociones" con el popup vacío · "0 promociones disponibles".</span></div>
+              <div class="case rise" style="--d: 5"><span class="where-k">Producto de Prueba 5<small>Productos</small></span><span class="see">El popup no carga: mensaje y Reintentar.</span></div>
+              <div class="case rise" style="--d: 6"><span class="where-k">Producto de Prueba 9<small>Productos</small></span><span class="see">Mercado Libre rechaza: "Precio mínimo fuera de rango. Reintentar".</span></div>
+              <div class="case rise" style="--d: 7"><span class="where-k">Producto de Prueba 11<small>Productos</small></span><span class="see">Varias a la vez con una que falla: tildá Mundial 2026 y Black Friday.</span></div>
+              <div class="case rise" style="--d: 8"><span class="where-k">"Liquidación de stock"<small>Asistente</small></span><span class="see">137 publicaciones: "Mostrar más" de a 50. Tildá varias para ver el progreso en vivo.</span></div>
+              <div class="case rise" style="--d: 9"><span class="where-k">Buscar el SKU 777-1044<small>Asistente · Todas las integraciones</small></span><span class="see">Resultados de varias campañas y el aviso de una cuenta que no respondió.</span></div>
+              <div class="case rise" style="--d: 10"><span class="where-k">Lápiz de "Día del padre"<small>Asistente</small></span><span class="see">Editar fechas (inicio bloqueado), renombrar y eliminar.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 22 · Fuentes ================= -->
+        <section class="slide" id="s-fuentes" data-part="3 · Cómo se construyó" data-title="De dónde salió todo">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 3 · Cómo se construyó</p>
+              <h2>De dónde salió todo</h2>
+              <p class="lead">De dos documentos, nada más. Cada uno manda en lo suyo: cuando no coinciden, se anota qué dice cada uno y la app sigue una.</p>
+            </div>
+            <div class="cast cast-3">
+              <article class="card rise" style="--d: 1">
+                <span class="avatar avatar-front"><svg class="ic" aria-hidden="true"><use href="#i-book"></use></svg></span>
+                <h3>La ERS 1.1</h3>
+                <span class="nick">Gonzalo y Verónica · 28/09</span>
+                <p class="small muted">El documento de requerimientos: qué se puede hacer, cuándo, y qué datos van y vienen entre la pantalla y la API.</p>
+                <span class="chip chip-front">Manda en reglas y datos</span>
+              </article>
+              <article class="card rise" style="--d: 2">
+                <span class="avatar avatar-back"><svg class="ic" aria-hidden="true"><use href="#i-edit"></use></svg></span>
+                <h3>El Figma</h3>
+                <span class="nick">Verónica · "Flujo Promos" · 30 pantallas</span>
+                <p class="small muted">El diseño de cada pantalla. Lo que no tenía dibujo se hizo con los componentes que ya existen en la app.</p>
+                <span class="chip chip-back">Manda en cómo se ve y los textos</span>
+              </article>
+              <article class="card rise" style="--d: 3">
+                <span class="avatar"><svg class="ic" aria-hidden="true"><use href="#i-laptop"></use></svg></span>
+                <h3>El código del front</h3>
+                <span class="nick">integrador_front_v3</span>
+                <p class="small muted">No decide nada de la funcionalidad: solo cómo se programa y qué piezas se reusan.</p>
+                <span class="chip">Manda en cómo se programa</span>
+              </article>
+            </div>
+            <div class="note">
+              <svg class="ic" aria-hidden="true"><use href="#i-layers"></use></svg>
+              <p>Cada vez que la ERS y el Figma no coinciden se anotó qué dice cada uno y qué hace la app: <strong>son 29</strong>. Lo que ninguno de los dos define está en la <a href="#28" data-go="s-huecos">hoja 28</a>, con cómo queda.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 23 · Proceso ================= -->
+        <section class="slide" id="s-proceso" data-part="3 · Cómo se construyó" data-title="Cómo se trabajó cada etapa">
+          <div class="inner split">
+            <div class="stack-md tiles-host">
+              <p class="eyebrow">Parte 3 · Cómo se construyó</p>
+              <h2>Cómo se trabajó cada etapa</h2>
+              <p class="lead">Siempre igual y una etapa por vez: ninguna pasó a la siguiente sin cumplir los cinco pasos.</p>
+              <div class="tiles tiles-4">
+                <article class="card tile rise" style="--d: 1"><span class="num">7</span><h3>etapas</h3><p class="small muted">terminadas y probadas</p></article>
+                <article class="card tile rise" style="--d: 2"><span class="num">924</span><h3>pruebas nuevas</h3><p class="small muted">automáticas, solo de Promociones</p></article>
+                <article class="card tile rise" style="--d: 3"><span class="num">1.765</span><h3>pruebas en verde</h3><p class="small muted">las de toda la app</p></article>
+                <article class="card tile rise" style="--d: 4"><span class="num">30</span><h3>pantallas</h3><p class="small muted">del Figma, todas cubiertas</p></article>
+              </div>
+            </div>
+            <ol class="road">
+              <li class="stop stop-front rise" style="--d: 1"><span class="stop-dot">1</span><div class="stop-body"><h3>El plan de la etapa</h3><p class="small muted">Un documento con qué se hace, dónde y cómo se prueba, escrito antes del código.</p></div></li>
+              <li class="stop stop-front rise" style="--d: 2"><span class="stop-dot">2</span><div class="stop-body"><h3>Programarla</h3><p class="small muted">Siguiendo el plan al pie de la letra y las reglas del proyecto.</p></div></li>
+              <li class="stop stop-front rise" style="--d: 3"><span class="stop-dot">3</span><div class="stop-body"><h3>Controles automáticos</h3><p class="small muted">Que compile, que respete las reglas de código y que pasen todas las pruebas de la app.</p></div></li>
+              <li class="stop stop-front rise" style="--d: 4"><span class="stop-dot">4</span><div class="stop-body"><h3>Una revisión aparte</h3><p class="small muted">Otra lectura, solo para buscar errores contra el plan. En las etapas 5, 6 y 7 no encontró errores de funcionamiento; lo que marcó se corrigió.</p></div></li>
+              <li class="stop stop-all rise" style="--d: 5"><span class="stop-dot">5</span><div class="stop-body"><h3>Probarla en el navegador</h3><p class="small muted">Cada escenario del plan, en modo demo: en compu, en celular y en modo oscuro.</p></div></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ================= 24 · Las 7 etapas ================= -->
+        <section class="slide" id="s-etapas" data-part="3 · Cómo se construyó" data-title="Las 7 etapas">
+          <div class="inner split">
+            <div class="stack-md">
+              <p class="eyebrow">Parte 3 · Cómo se construyó</p>
+              <h2>Las 7 etapas: todas terminadas</h2>
+              <p class="lead">Se arrancó por Productos, como pide la ERS, y el Asistente reusó las mismas piezas: paneles, avisos y selección.</p>
+              <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Las 7 probadas en el navegador</span>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+                <p>Cada etapa se probó sola, con el flag apagado para los clientes y en modo demo para verla.</p>
+              </div>
+            </div>
+            <ol class="road">
+              <li class="stop stop-done rise" style="--d: 1"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>1 · La base</h3><p class="small muted">Reglas, textos, datos de demo y el flag. No se ve, pero lo usan todas.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 2"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>2 · Productos: solo mirar</h3><p class="small muted">La columna con las etiquetas y el popup con la tabla.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 3"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>3 · Participar y dejar, de a una</h3><p class="small muted">Los paneles de confirmar, la confirmación de baja y los avisos.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 4"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>4 · Varias a la vez</h3><p class="small muted">Tildar, confirmar, el progreso en vivo y el resultado.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 5"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>5 · Modificar oferta y Meli+</h3><p class="small muted">El panel de modificar, con los 4 casos de Meli+.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 6"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>6 · Pestaña del Asistente</h3><p class="small muted">Tarjetas por campaña, "Mostrar más", búsqueda y filtro.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 7"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>7 · Campañas y detalle</h3><p class="small muted">Editar o eliminar la campaña, y la sección en Detalles de publicación.</p></div></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ================= 25 · Arreglos ================= -->
+        <section class="slide" id="s-arreglos" data-part="3 · Cómo se construyó" data-title="Lo que se arregló en el camino">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 3 · Cómo se construyó</p>
+              <h2>Lo que se arregló en el camino</h2>
+              <p class="lead">Cosas que aparecieron al probar y ya quedaron resueltas. Ninguna llegó a los clientes: el flag sigue apagado.</p>
+            </div>
+            <div class="fixes">
+              <article class="card rise" style="--d: 1"><h3>Escape cerraba todo de golpe</h3><p class="small muted">Con una confirmación encima del popup o de un panel, un Escape cerraba las dos cosas. Ahora cierra solo la de arriba.</p></article>
+              <article class="card rise" style="--d: 2"><h3>Una oferta destildada volvía tildada</h3><p class="small muted">En varias a la vez podía reaparecer tildada y mezclar sumarse con salirse. Ya no pasa.</p></article>
+              <article class="card rise" style="--d: 3"><h3>Precios con centavos cortados</h3><p class="before-after"><span class="was">$ 18.110,4</span><svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg><span class="now">$ 18.110,40</span></p></article>
+              <article class="card rise" style="--d: 4"><h3>La fila del Asistente se cortaba</h3><p class="small muted">Entre ~768 y ~1050 px de ancho los botones se cortaban o se pisaban. Ahora la fila pasa a dos líneas según el lugar que tiene.</p></article>
+              <article class="card rise" style="--d: 5"><h3>El progreso podía quedar colgado</h3><p class="small muted">Si la respuesta no terminaba bien, el aviso quedaba esperando. Ahora lo marca como incompleto y pide revisar la lista.</p></article>
+              <article class="card rise" style="--d: 6"><h3>La demo se escapaba al servidor real</h3><p class="small muted">Con la pestaña quieta un rato, la demo dejaba de responder y el login automático mandaba los datos de prueba al servidor real. Ahora, si la demo no responde, el pedido no sale.</p></article>
+              <article class="card rise" style="--d: 7"><h3>Avisos amarillos que casi no se leían</h3><p class="small muted">El texto naranja sobre amarillo tenía poco contraste. Ahora va en el color de texto normal.</p></article>
+              <article class="card rise" style="--d: 8"><h3>Una prueba que fallaba de a ratos</h3><p class="small muted">Fallaba 1 de cada 4 veces sin motivo real. Quedó estable.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 26 · Foto de hoy ================= -->
+        <section class="slide" id="s-foto" data-part="4 · Cómo está y qué falta" data-title="La foto de hoy">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>La foto de hoy: 19 piezas</h2>
+              <p class="lead">Contamos cada pieza —el código y lo que falta para producción— y le pusimos un estado. Tocá un estado para ver cuáles son.</p>
+            </div>
+            <div class="donut-wrap">
+              <figure class="donut rise" style="--d: 1">
+                <svg id="donutSvg" viewBox="0 0 240 240" role="img" aria-label="Gráfico de dona: 12 piezas listas, 6 que faltan hacer y 1 a analizar. Total 19.">
+                  <text class="d-num" x="120" y="124" text-anchor="middle">19</text>
+                  <text class="d-lbl" x="120" y="148" text-anchor="middle">piezas</text>
+                </svg>
+              </figure>
+              <div class="stack-md rise" style="--d: 2">
+                <div class="legend" id="donutLegend"></div>
+                <div class="card donut-detail" id="donutDetail" aria-live="polite">
+                  <p><strong>En criollo:</strong> el <strong>front está terminado</strong>, probado en modo demo y subido a dev. Para producción, el back tiene que hacer los cambios del contrato (<a href="#29" data-go="s-back-rompe">hojas 29 y 30</a>), y después falta probarlo con la API real y prender el flag.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 27 · Pieza por pieza ================= -->
+        <section class="slide" id="s-piezas" data-part="4 · Cómo está y qué falta" data-title="Pieza por pieza">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>Pieza por pieza, de quién es cada una</h2>
+            </div>
+            <div class="teams teams-cols" id="teams">
+              <div class="team-col" data-teams="plan camino"></div>
+              <div class="team-col" data-teams="front"></div>
+              <div class="team-col" data-teams="back"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Lo que la ERS no define ================= -->
+        <section class="slide" id="s-huecos" data-part="4 · Cómo está y qué falta" data-title="Lo que la ERS no define">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>Lo que la ERS no define y la pantalla necesita</h2>
+              <p class="lead">No son choques: son huecos. Cada uno con lo que necesita la pantalla, cómo queda y qué hace la app mientras no llegue. Tocá una captura para verla grande.</p>
+            </div>
+            <div class="gaps">
+              <article class="gap card rise" style="--d: 1">
+                <div class="gap-head"><span class="chip chip-ask">R1</span><h3>El precio normal de cada publicación</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>Pasar del % al precio de la oferta mientras el seller escribe, y mostrar el precio en la fila del Asistente (el Figma dibuja "$ 160.000").</dd></div>
+                    <div><dt>La ERS</dt><dd>3.3.2 pide mostrar el "precio estándar actual de la publicación" y 3.3.3, calcular el precio final al tipear el %. Ni la oferta (3.2.4) ni las ofertas de una campaña (3.6.4) lo traen.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>El back lo agrega en cada oferta como <code>originalPrice</code> (en ML es <code>original_price</code>).</dd></div>
+                    <div><dt>Si no llega</dt><dd>En Productos se usa el precio publicado de la vinculación. En el Asistente la fila va sin precio y el panel avisa que falta y no deja confirmar.</dd></div>
+                  </dl>
+                  <div class="gap-shots gap-shots-2">
+                    <figure class="shot shot-plain"><img srcset="shots/hueco-r1-con.webp 2x" alt="Sección Precio del panel de participar: precio normal de publicación 160.000 pesos, descuento general y precio de la oferta para completar, con el rango Ofrecé entre un 5% y un 10%" decoding="async" /><figcaption><b>Con el dato</b> · el precio normal y el cálculo del % al precio.</figcaption></figure><figure class="shot shot-plain"><img srcset="shots/hueco-r1-sin.webp 2x" alt="Sección Precio del panel de participar con el aviso: No pudimos obtener el precio de la publicación, así que no se puede calcular el descuento" decoding="async" /><figcaption><b>Sin el dato</b> · el panel avisa y Confirmar queda deshabilitado.</figcaption></figure><figure class="shot shot-plain"><img srcset="shots/hueco-r1-fila.webp 2x" alt="Dos filas del Asistente sin el precio debajo del título: MLA, SKU y título, con Oferta Candidata y Participar" decoding="async" /><figcaption><b>Sin el dato</b> · la fila del Asistente va sin precio.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 2">
+                <div class="gap-head"><span class="chip chip-ask">R2</span><h3>El Meli+ actual de cada oferta</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>Al modificar una oferta hay que saber si ya tiene Meli+ y cuánto: si tiene, se muestra para mejorarlo (o quitarlo, si la campaña no empezó); si no, aparece "Agregar Descuento Meli+".</dd></div>
+                    <div><dt>La ERS</dt><dd>3.4.3 define qué se puede hacer con el Meli+ al modificar, pero la oferta (3.2.4) no trae el precio Meli+ que tiene cargado.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>El back lo agrega en cada oferta del seller como <code>loyaltyDiscountPrice</code>: el precio Meli+ cargado, o <code>null</code> si no tiene.</dd></div>
+                    <div><dt>Si no llega</dt><dd>"Modificar" deja cambiar solo el descuento general, con un aviso. No ofrece agregar ni quitar el Meli+, para no pisar uno que ya existe.</dd></div>
+                  </dl>
+                  <div class="gap-shots gap-shots-2">
+                    <figure class="shot shot-plain"><img srcset="shots/meli-mejorar.webp 2x" alt="Sección Precio con la campaña activa y el Meli+ cargado, con el aviso: solo podés mejorar el descuento Meli+" decoding="async" /><figcaption><b>Con el dato</b> · el Meli+ cargado, para mejorarlo.</figcaption></figure><figure class="shot shot-plain"><img srcset="shots/hueco-r2-sin.webp 2x" alt="Sección Precio del panel Modificar oferta: descuento 6% y precio 131.600 pesos, con el aviso No pudimos obtener el descuento Meli+ de esta oferta. Por ahora solo podés modificar el descuento general" decoding="async" /><figcaption><b>Sin el dato</b> · solo el descuento general, con el aviso.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 3">
+                <div class="gap-head"><span class="chip chip-ask">R3 · K7</span><h3>El total de publicaciones de cada campaña</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>El contador de la tarjeta de cada campaña en el Asistente ("11 publicaciones"). Es el total de la campaña, no "publicaciones participando" como dibuja el Figma.</dd></div>
+                    <div><dt>La ERS</dt><dd>3.6.3 pide mostrar "la cantidad total de publicaciones/ofertas incluidas", pero ni la lista de campañas ni las ofertas de una campaña lo traen.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>El back manda <code>total</code> en la primera página de ofertas de cada campaña (es el <code>paging.total</code> de ML) y analiza sumarlo también a la lista de campañas, si no la hace lenta: así se vería con la tarjeta cerrada.</dd></div>
+                    <div><dt>Si no llega</dt><dd>La tarjeta va sin contador. Con el total en la primera página, aparece al abrirla; con el total en la lista, desde el principio.</dd></div>
+                  </dl>
+                  <div class="gap-shots">
+                    <figure class="shot shot-plain"><img srcset="shots/hueco-r3.webp 2x" alt="Tarjeta Día del padre abierta: en la cabecera, el estado Activa y el contador 11 publicaciones, y debajo la primera publicación" decoding="async" /><figcaption><b>Con el dato</b> · "11 publicaciones" en la cabecera de la tarjeta.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 4">
+                <div class="gap-head"><span class="chip chip-ask">R4</span><h3>Si la publicación es de catálogo</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>La etiqueta amarilla "Publicación de Catálogo" que el Figma dibuja arriba del código de la publicación, en la fila del Asistente.</dd></div>
+                    <div><dt>La ERS</dt><dd>La publicación de cada oferta trae código, imagen, SKU y título (3.6.4); no dice si es de catálogo.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>El back lo agrega como <code>listing.isCatalog</code> (el <code>catalog_listing</code> del ítem, que ya pide).</dd></div>
+                    <div><dt>Si no llega</dt><dd>Sin etiqueta. Además va detrás del flag de publicaciones de catálogo.</dd></div>
+                  </dl>
+                  <div class="gap-shots">
+                    <figure class="shot shot-plain"><img srcset="shots/hueco-r4.webp 2x" alt="Fila del Asistente con la etiqueta amarilla Publicación de Catálogo arriba del código MLA3092411532" decoding="async" /><figcaption><b>Con el dato</b> · la etiqueta arriba del MLA.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 5">
+                <div class="gap-head"><span class="chip chip-ask">S1</span><h3>Con qué cuenta de ML trabaja cada pedido</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>Un seller puede tener varias cuentas de Mercado Libre (una integración por cuenta) y una misma campaña puede estar en varias (3.6.3). Cada pedido tiene que saber a qué cuenta va.</dd></div>
+                    <div><dt>La ERS</dt><dd>La nombra solo en la lista de campañas (cuenta o compañía) y al editar una campaña. Participar, dejar, modificar, buscar, las ofertas de una campaña y eliminar una campaña no lo dicen.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>La cuenta va como <code>serviceId</code> en la query de todos los pedidos. Con "Todas las integraciones", la lista de campañas sale en un pedido con <code>companyId</code>; la búsqueda, una por cuenta, y si alguna no responde avisa arriba con Reintentar. Un masivo que mezcla cuentas sale en un pedido por cuenta.</dd></div>
+                    <div><dt>Si no llega</dt><dd>El back tiene que aceptar <code>companyId</code> en la lista de campañas: sin eso, "Todas las integraciones" queda en error.</dd></div>
+                  </dl>
+                  <div class="gap-shots">
+                    <figure class="shot shot-plain"><img srcset="shots/hueco-s1.webp 2x" alt="Búsqueda por SKU 777-1044 en Todas las integraciones: aviso No pudimos cargar las promociones de WooCommerce a Mercado Libre con el botón Reintentar, y debajo la campaña Día del padre de Zeus" decoding="async" /><figcaption><b>Con "Todas"</b> · una cuenta no respondió: aviso y las demás se ven igual.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 6">
+                <div class="gap-head"><span class="chip chip-ask">S5</span><h3>Cómo llega el avance en vivo y el detalle de cada error</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>En "varias a la vez", el aviso de abajo a la derecha muestra el avance ("4 de 9") y al final el resultado, con la tabla de las que fallaron: publicación, campaña y motivo.</dd></div>
+                    <div><dt>La ERS</dt><dd>3.3.4 y 3.5.4 piden un stream de eventos en el masivo, conteos de éxito y error, y la publicación y la campaña de cada falla. No definen nombres ni formato.</dd></div>
+                    <div class="gap-ask"><dt>Falta definir</dt><dd>Cómo llega el avance. Hoy el back procesa las ofertas de a una y responde al final con <code>success</code> y <code>failed</code>, sin el detalle de las que fallaron. El front propone el formato de la importación de lista de precios (eventos de inicio, avance y fin, con <code>Accept: text/event-stream</code>).</dd></div>
+                    <div><dt>Si no llega</dt><dd>Sin stream, el aviso muestra el resultado final cuando termina. Sin <code>failures</code>, la tabla de las que fallaron queda vacía.</dd></div>
+                  </dl>
+                  <div class="gap-shots gap-shots-2">
+                    <figure class="shot shot-plain"><img srcset="shots/widget-progreso.webp 2x" alt="Aviso flotante: Confirmando participación, 1 de 2 ofertas, barra de progreso a la mitad, 0 exitosas y 1 con error" decoding="async" /><figcaption><b>Avance</b> · se actualiza con cada evento.</figcaption></figure><figure class="shot shot-plain"><img srcset="shots/widget-resultado.webp 2x" alt="Aviso de resultado: Activación de ofertas, 1 exitosa y 1 con error, y la tabla con la oferta que no se pudo activar y su motivo" decoding="async" /><figcaption><b>Resultado</b> · la tabla sale de <code>failures</code>.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 7">
+                <div class="gap-head"><span class="chip chip-ask">S6 · S7</span><h3>El formato de las fechas y los estados de las campañas</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>Cada tarjeta muestra el estado de la campaña, y el panel "Modificar promoción" manda las fechas nuevas.</dd></div>
+                    <div><dt>La ERS</dt><dd>Muestra el estado como "Activa o Pendiente" sin decir qué valores manda la API, y nombra las fechas como las de ML. No dice el formato.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>Fechas en ISO, como ya llegan. El estado lo manda el back: <code>pending</code> (Programada), <code>active</code> (Activa) y el de las finalizadas. Hoy la lista de campañas manda el de ML tal cual (<code>started</code>…): el front lo calcula con las fechas cuando no lo reconoce.</dd></div>
+                    <div><dt>Si no llega</dt><dd>El estado sale de las fechas: Programada antes del inicio, Activa durante y Finalizada después del fin.</dd></div>
+                  </dl>
+                  <div class="gap-shots">
+                    <figure class="shot shot-plain"><img srcset="shots/hueco-s67.webp 2x" alt="Lista de campañas cerradas: Día del padre Activa, Cyber Monday Programada, Semana del hogar Activa, Liquidación invierno Finalizada, Hot sale Activa y Mundial 2026 Activa" decoding="async" /><figcaption><b>Estados</b> · Programada, Activa y Finalizada.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 8">
+                <div class="gap-head"><span class="chip chip-ask">S8</span><h3>Qué pasa si vence la página de "Mostrar más"</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Para qué</dt><dd>Las ofertas de una campaña llegan de a 50; "Mostrar más" pide la siguiente página con un cursor que vence a los 5 minutos (2.3).</dd></div>
+                    <div><dt>La ERS</dt><dd>No dice qué responde el pedido de ofertas de una campaña con un cursor vencido.</dd></div>
+                    <div class="gap-done"><dt>Queda así</dt><dd>Con el cursor vencido el back responde un 4xx; la lista se recarga desde la primera página, la tarjeta vuelve arriba y avisa.</dd></div>
+                    <div><dt>Si no llega</dt><dd>Hoy el back responde 500 ante cualquier error: la tarjeta muestra el error y "Mostrar más" reintenta, sin recargar.</dd></div>
+                  </dl>
+                  <div class="gap-shots">
+                    <figure class="shot shot-plain"><img srcset="shots/hueco-s8.webp 2x" alt="Aviso: La lista se actualizó y la volvimos a cargar desde el principio" decoding="async" /><figcaption><b>Cursor vencido</b> · el aviso, arriba a la derecha.</figcaption></figure>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= El back hoy: lo que rompe ================= -->
+        <section class="slide" id="s-back-rompe" data-part="4 · Cómo está y qué falta" data-title="El back hoy: lo que rompe">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>El back hoy: lo que rompe</h2>
+              <p class="lead">Revisé la rama <code>feature/precio-promocion</code> del api gateway (último commit del 29/09, <code>0f5523dc</code>, Gabriel Monutti) contra lo que manda y espera el front. Estos seis puntos hacen que la pantalla no funcione aunque todo lo demás esté bien: van primero.</p>
+            </div>
+            <div class="gaps">
+              <article class="gap card rise" style="--d: 1">
+                <div class="gap-head"><span class="chip chip-bad">1</span><h3>El api gateway no levanta en esta rama</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Dónde</dt><dd><code>MercadoLibreRoute.js:32</code></dd></div>
+                    <div><dt>Qué pasa</dt><dd>La ruta <code>PUT /mercadolibre/campaigns/:campaign_id</code> usa <code>meliCtrl.updateCampaign</code>, que no existe. El <code>.bind</code> sobre <code>undefined</code> tira al cargar las rutas.</dd></div>
+                    <div class="gap-done"><dt>Arreglo</dt><dd>El método de campañas del controller se tiene que llamar <code>updateCampaign</code>.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 2">
+                <div class="gap-head"><span class="chip chip-bad">2</span><h3>Modificar una oferta responde 400</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Dónde</dt><dd><code>MercadoLibreController.js:857</code> y <code>:967</code></dd></div>
+                    <div><dt>Qué pasa</dt><dd><code>updateOffer</code> está dos veces; la segunda (la de campañas) pisa a la primera. <code>PUT /offers</code> termina pidiendo <code>campaign_id</code>: "ServiceId y campaign_id son requeridos".</dd></div>
+                    <div class="gap-done"><dt>Arreglo</dt><dd>Renombrar la segunda a <code>updateCampaign</code> (es el mismo arreglo de arriba).</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 3">
+                <div class="gap-head"><span class="chip chip-bad">3</span><h3>Ninguna oferta se puede leer</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Dónde</dt><dd><code>MercadoLibreClass.js:2570</code> (<code>mapOffer</code>)</dd></div>
+                    <div><dt>Qué pasa</dt><dd>Arma <code>compaign</code> en vez de <code>campaign</code> y <code>endDate</code> en vez de <code>finishDate</code>. El front no encuentra la campaña: el popup y las tarjetas quedan en error.</dd></div>
+                    <div class="gap-done"><dt>Arreglo</dt><dd><code>campaign</code> y <code>finishDate</code>, como en la ERS (3.2.4).</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 4">
+                <div class="gap-head"><span class="chip chip-bad">4</span><h3>Lo que ML rechaza cuenta como éxito</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Dónde</dt><dd><code>core/handler.js:48</code> (<code>callService</code>)</dd></div>
+                    <div><dt>Qué pasa</dt><dd><code>callService</code> no rechaza cuando ML responde 4xx o 5xx: resuelve con el status. Participar, modificar, dejar y editar o eliminar una campaña dan OK aunque ML diga que no.</dd></div>
+                    <div class="gap-done"><dt>Arreglo</dt><dd>Mirar <code>response.status</code> en <code>activateSellerPromotion</code>, <code>updateSellerPromotion</code>, <code>deleteSellerPromotion</code>, <code>updateSellerCampaign</code> y <code>deleteSellerCampaign</code>, y devolver el motivo de ML.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 5">
+                <div class="gap-head"><span class="chip chip-bad">5</span><h3>"Todas las integraciones" queda en error</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Dónde</dt><dd><code>MercadoLibreController.js:916</code> (<code>getCampaigns</code>)</dd></div>
+                    <div><dt>Qué pasa</dt><dd>Exige <code>serviceId</code>. Con "Todas", el front manda <code>companyId</code> (ERS 3.6.4) y recibe 400.</dd></div>
+                    <div class="gap-done"><dt>Arreglo</dt><dd>Aceptar <code>companyId</code>: las campañas de todas las cuentas de ML de la compañía, cada una con su <code>serviceId</code> y <code>serviceName</code>.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 6">
+                <div class="gap-head"><span class="chip chip-bad">6</span><h3>Las ofertas de una campaña traen la campaña equivocada</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>Dónde</dt><dd><code>MercadoLibreClass.js:2753</code> (<code>getCampaignOffers</code>)</dd></div>
+                    <div><dt>Qué pasa</dt><dd>Reusa <code>mapOffer</code>, pensado para las promociones de un ítem: <code>campaign.id</code> queda con el MLA y sin nombre, tipo ni fechas. Al participar, el front mandaría el MLA como campaña.</dd></div>
+                    <div class="gap-done"><dt>Arreglo</dt><dd>Armar <code>campaign</code> con el <code>campaign_id</code> y el <code>campaignType</code> del pedido (y el nombre y las fechas de la campaña).</dd></div>
+                  </dl>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= El contrato, pedido por pedido ================= -->
+        <section class="slide" id="s-contrato" data-part="4 · Cómo está y qué falta" data-title="El contrato con el back">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>El contrato con el back, pedido por pedido</h2>
+              <p class="lead">Qué manda y qué espera el front en cada pedido, qué hace hoy el back y qué hay que cambiar. Cómo lo resuelve el back adentro no importa: lo que tiene que coincidir es lo que entra y lo que sale. Los números de "punto" son los de la hoja anterior.</p>
+            </div>
+            <div class="gaps">
+              <article class="gap card rise" style="--d: 1">
+                <div class="gap-head"><span class="chip chip-method">C1 · C6</span><span class="chip chip-bad">Rompe</span><h3>La oferta, como llega en la búsqueda y en las ofertas de una campaña</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front espera</dt><dd><code>{ id, campaign: { id, name, type, startDate, finishDate }, status, discountPrice, sellerDiscount: { percentage, amount }, destinationDiscount, percentageRange, listing: { id, title, thumbnail, sku, isCatalog }, originalPrice, loyaltyDiscountPrice }</code>. <code>id</code> es <code>null</code> en las del seller; <code>status</code>: <code>candidate</code>, <code>pending</code> o <code>active</code>.</dd></div>
+                    <div><dt>El back hoy</dt><dd><code>compaign</code> y <code>endDate</code> (rompe, punto 3). Faltan <code>originalPrice</code>, <code>loyaltyDiscountPrice</code> y <code>listing.isCatalog</code>. En las candidatas de ML (SMART y PRE_NEGOTIATED) los % van en <code>null</code>. <code>percentageRange</code> llega <code>{ min: null, max: null }</code> cuando ML no lo informa. Un estado de ML fuera de los cuatro mapeados queda <code>undefined</code> y el front descarta esa oferta.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Renombrar. Sumar los tres campos (<code>original_price</code>, el precio Meli+ cargado y <code>catalog_listing</code>). En las candidatas de ML, <code>sellerDiscount</code> y <code>destinationDiscount</code> con sus % (<code>seller_percentage</code>, <code>meli_percentage</code>): solo las candidatas del seller van en <code>null</code> (ERS 3.2.3). <code>percentageRange: null</code> si no hay rango.</dd></div>
+                    <div><dt>Ya en el front</dt><dd>Toma <code>percentageRange</code> sin los dos números como "sin rango".</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 2">
+                <div class="gap-head"><span class="chip chip-method">GET</span><code class="gap-path">/mercadolibre/offers</code><span class="chip chip-bad">Rompe</span><h3>Búsqueda y popup de Productos</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>serviceId</code> y <code>destinationId</code> (MLA, MLAU o family) <strong>o</strong> <code>sku</code>, nunca los dos (ERS 3.6.4).</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ offers: Oferta[] }</code>; error <code>{ error: true, message }</code>.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Lee <code>listingId</code>, no <code>destinationId</code>. Sin ninguno de los dos, <code>listingId.slice</code> sobre <code>undefined</code> da 500. Si la búsqueda por SKU falla, <code>getProductsBySku</code> devuelve el mensaje como texto y <code>product.results</code> revienta. Por cada oferta sin fechas pide el detalle de la promoción.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Leer <code>destinationId</code>. 400 si no viene ninguno. Un error claro si falla la búsqueda por SKU.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 3">
+                <div class="gap-head"><span class="chip chip-method">POST</span><code class="gap-path">/mercadolibre/offers</code><span class="chip chip-bad">Rompe</span><h3>Participar (de a una o varias)</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>?serviceId</code> y <code>{ offers: [{ id?, listing, campaign, campaignType, discount?, loyaltyDiscount? }] }</code>. Una = individual; varias = masivo, con <code>Accept: text/event-stream</code>. Coincide con lo que lee el back.</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ success, failed, failures: [{ listing, campaign, campaignName, reason }] }</code>. De a una, si falla: <code>{ error: true, message }</code> con el motivo de ML. Avance en vivo: S5.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Procesa de a una, en serie, y responde al final <code>{ error: false, data, success, failed }</code> (200, o 207 si hubo de las dos); si fallaron todas, 400 "Error al crear la oferta". Sin <code>failures</code>. Cuenta como éxito lo que ML rechaza (punto 4).</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Punto 4. <code>failures</code> con el motivo de ML. De a una, el mensaje de ML en el error.</dd></div>
+                    <div><dt>Ya en el front</dt><dd>Si no llega el stream, el aviso muestra el resultado final igual.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 4">
+                <div class="gap-head"><span class="chip chip-method">PUT</span><code class="gap-path">/mercadolibre/offers</code><span class="chip chip-bad">Rompe</span><h3>Modificar una oferta</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>?serviceId</code> y <code>{ listing, campaign, discount?, loyaltyDiscount?, removeLoyalty? }</code>. Coincide: el back ya lee <code>listing</code>, que la ERS no tenía.</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ error: false }</code>, o <code>{ error: true, message }</code> con el motivo de ML.</dd></div>
+                    <div><dt>El back hoy</dt><dd>No llega al método (punto 2). Cuenta como éxito lo que ML rechaza (punto 4).</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Puntos 2 y 4, y el mensaje de ML en el error.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 5">
+                <div class="gap-head"><span class="chip chip-method">DELETE</span><code class="gap-path">/mercadolibre/offers</code><span class="chip chip-warn">Cambia el back</span><h3>Dejar de participar (de a una o varias)</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>?serviceId</code> y <code>{ offers: [{ id?, listing, campaign, campaignType }] }</code> (ERS 3.5.4).</dd></div>
+                    <div><dt>El front espera</dt><dd>Lo mismo que al participar.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Lee <code>offerId</code>, no <code>id</code> (<code>MercadoLibreClass.js:2713</code>): en SMART y PRE_NEGOTIATED no le manda el <code>offer_id</code> a ML. La respuesta, como al participar.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Leer <code>id</code>. Lo mismo que al participar en la respuesta y los errores.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 6">
+                <div class="gap-head"><span class="chip chip-method">GET</span><code class="gap-path">/mercadolibre/campaigns</code><span class="chip chip-bad">Rompe</span><span class="chip">A analizar</span><h3>Lista de campañas del Asistente</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>serviceId</code> o, con "Todas las integraciones", <code>companyId</code> (ERS 3.6.4).</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ campaigns: [{ id, name, type, status, startDate, finishDate, serviceId, serviceName, total? }] }</code>.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Solo <code>serviceId</code> (punto 5). <code>status</code> crudo de ML. El resto de los campos y el filtro a los tres tipos coinciden.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd><code>companyId</code>. <code>status</code> mapeado como en las ofertas (<code>started</code> → <code>active</code>, y el de las finalizadas). A analizar: <code>total</code> por campaña, si no la hace lenta (es una llamada más a ML por campaña).</dd></div>
+                    <div><dt>Ya en el front</dt><dd>Si viene <code>total</code>, la tarjeta lo muestra aunque esté cerrada.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 7">
+                <div class="gap-head"><span class="chip chip-method">GET</span><code class="gap-path">/mercadolibre/campaigns/:campaignId</code><span class="chip chip-bad">Rompe</span><h3>Ofertas de una campaña, de a páginas</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>serviceId</code>, <code>campaignType</code> y <code>nextPage</code> (sin él, la primera). Coincide.</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ offers, nextPage, total }</code>. <code>nextPage: null</code> en la última. Con el cursor vencido, un 4xx.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Campaña mal armada (punto 6). Sin <code>total</code>. <code>nextPage</code> es el <code>paging.searchAfter</code> de ML. Cualquier error da 500 "Error al obtener las campañas". Pide el ítem de cada oferta de a uno (50 pedidos a ML por página).</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Punto 6. <code>total</code> (el <code>paging.total</code> de ML). <code>nextPage: null</code> en la última página. 4xx con el cursor vencido. Los ítems en lote (<code>getItemsDetail</code>, de a 20).</dd></div>
+                    <div><dt>Ya en el front</dt><dd>Con el 4xx recarga desde la primera página, lleva la tarjeta arriba y avisa.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 8">
+                <div class="gap-head"><span class="chip chip-method">PUT</span><code class="gap-path">/mercadolibre/campaigns/:campaignId</code><span class="chip chip-bad">Rompe</span><span class="chip chip-front">Ajustado en el front</span><h3>Editar una campaña del seller</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>?serviceId</code> y <code>{ id, serviceId, name?, startDate?, finishDate? }</code>, solo lo que cambió. Las fechas, el día elegido: <code>2026-10-20T00:00:00</code> y <code>2026-10-27T23:59:59</code>, hora local, sin zona.</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ error: false }</code>, o <code>{ error: true, message }</code> con el motivo de ML.</dd></div>
+                    <div><dt>El back hoy</dt><dd>La ruta rompe (punto 1). Lee <code>serviceId</code> de la query y <code>name</code>, <code>startDate</code> y <code>finishDate</code> del body: coincide. La respuesta dice "Oferta actualizada correctamente".</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Punto 1. "Campaña actualizada". Confirmar que ML acepta las fechas así o si van con zona (<code>-03:00</code>).</dd></div>
+                    <div><dt>Ya en el front</dt><dd>Manda <code>serviceId</code> también en la query (la ERS lo pone solo en el body).</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 9">
+                <div class="gap-head"><span class="chip chip-method">DELETE</span><code class="gap-path">/mercadolibre/campaigns/:campaignId</code><span class="chip chip-warn">Cambia el back</span><h3>Eliminar una campaña del seller</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front manda</dt><dd><code>?serviceId</code>.</dd></div>
+                    <div><dt>El front espera</dt><dd><code>{ error: false }</code> o <code>{ error: true, message }</code>.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Coincide. Pero decide el éxito con <code>if (result)</code> sobre <code>response.data</code>: si ML responde sin cuerpo, devuelve 500 aunque se haya borrado.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Mirar <code>response.status</code> (punto 4).</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 10">
+                <div class="gap-head"><span class="chip chip-method">GET</span><code class="gap-path">/products/relations</code><span class="chip chip-warn">Cambia el back</span><span class="chip">A analizar</span><h3>Columna de Productos: "en N promociones"</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front espera</dt><dd><code>totalOffers</code> y <code>availableOffers</code> en cada vinculación con ML.</dd></div>
+                    <div><dt>El back hoy</dt><dd>Los suma (<code>FunctionsSchemas.js:497</code>) con una llamada a ML por publicación, siempre, también para quien no usa promociones. Si ML falla para una, <code>getItemPromotions</code> tira y la excepción sube. Cuenta todos los tipos de promoción de ML, como dice la ERS (3.1.4), aunque el popup muestre solo los tres.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>try/catch por publicación (sin el dato, <code>null</code>). A analizar: el costo de esa llamada en el listado.</dd></div>
+                  </dl>
+                </div>
+              </article>
+              <article class="gap card rise" style="--d: 11">
+                <div class="gap-head"><span class="chip chip-method">Todos</span><span class="chip chip-ok">Coincide</span><h3>Errores</h3></div>
+                <div class="gap-body">
+                  <dl class="gap-info">
+                    <div><dt>El front espera</dt><dd><code>{ error: true, message }</code> con un mensaje para mostrar; el front lo pone tal cual en el aviso.</dd></div>
+                    <div><dt>El back hoy</dt><dd><code>createErrorResponse</code> devuelve <code>{ error: true, data, stack, message }</code>: coincide. Pero los mensajes son genéricos ("Error al crear la oferta") y se pierde el motivo de ML.</dd></div>
+                    <div class="gap-done"><dt>Cambiar en el back</dt><dd>Pasar el mensaje de ML cuando lo hay.</dd></div>
+                  </dl>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 34 · El camino ================= -->
+        <section class="slide" id="s-camino" data-part="4 · Cómo está y qué falta" data-title="El camino a producción">
+          <div class="inner split">
+            <div class="stack-md">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>El camino a producción</h2>
+              <p class="lead">Siete paradas. Las cuatro primeras ya están.</p>
+              <div class="legend-row">
+                <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Listo</span>
+                <span class="chip chip-front">Vos (front)</span>
+                <span class="chip chip-ask">Todos</span>
+              </div>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+                <p>Estar en dev no prende nada: el flag <strong>Promociones de Mercado Libre</strong> sigue apagado hasta que se decida.</p>
+              </div>
+            </div>
+            <ol class="road">
+              <li class="stop stop-done rise" style="--d: 1"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>El plan, a partir de la ERS y el Figma</h3><p class="small muted">Armado el 29/09 y revisado el 02/10.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 2"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Las 7 etapas, programadas y probadas</h3><p class="small muted">En modo demo: en compu, en celular y en modo oscuro.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 3"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Commits y textos</h3><p class="small muted">La función completa (07/10) y los ajustes del 14 al 16/10. Los textos ya están en Tolgee.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 4"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Subido a dev (07/10 y 16/10)</h3><p class="small muted">Se publica solo en el dev. Ahí se puede probar con datos de prueba, como en la hoja 20.</p></div></li>
+              <li class="stop stop-all rise" style="--d: 5"><span class="stop-dot">5</span><div class="stop-body"><h3>El back hace los cambios del contrato</h3><p class="small muted">Los seis puntos que rompen primero (hoja 29), después nombres, datos y respuestas (hoja 30). Sin eso no se puede probar con la API real.</p></div></li>
+              <li class="stop stop-all rise" style="--d: 6"><span class="stop-dot">6</span><div class="stop-body"><h3>Probarlo con la API real</h3><p class="small muted">Cuando esté disponible, contra la ERS y el contrato. Lo que cambie se toca en un solo lugar.</p></div></li>
+              <li class="stop stop-front rise" style="--d: 7"><span class="stop-dot">7</span><div class="stop-body"><h3>Prender el flag para los clientes</h3><p class="small muted">El último paso de todos.</p></div></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- ================= 35 · Dónde quedó ================= -->
+        <section class="slide" id="s-donde" data-part="4 · Cómo está y qué falta" data-title="Dónde quedó todo">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
+              <h2>Dónde quedó todo</h2>
+              <p class="lead">Para que no haya sorpresas: esto es lo que hay y dónde está.</p>
+            </div>
+            <div class="places places-4">
+              <article class="card rise" style="--d: 1">
+                <span class="avatar avatar-front"><svg class="ic" aria-hidden="true"><use href="#i-laptop"></use></svg></span>
+                <h3>El código</h3>
+                <p class="path">integrador_front_v3 · rama dev · versión 4.293.1</p>
+                <p class="muted">La función completa y los ajustes de la revisión, <strong>ya en dev</strong> (último push: 16/10).</p>
+                <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>En dev</span>
+              </article>
+              <article class="card rise" style="--d: 2">
+                <span class="avatar avatar-back"><svg class="ic" aria-hidden="true"><use href="#i-book"></use></svg></span>
+                <h3>Los textos</h3>
+                <p class="path">Tolgee · namespace mlPromotions</p>
+                <p class="muted">Ya están cargados en Tolgee: los 165 textos de Promociones y el nombre de la pestaña del Asistente.</p>
+                <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>En Tolgee</span>
+              </article>
+              <article class="card rise" style="--d: 3">
+                <span class="avatar avatar-ml"><svg class="ic" aria-hidden="true"><use href="#i-flag"></use></svg></span>
+                <h3>El flag</h3>
+                <p class="path">Promociones de Mercado Libre · mercadolibrePromotions</p>
+                <p class="muted"><strong>Apagado.</strong> Para verlo, se prende desde Configuración avanzada (hoja 20). Para los clientes, cuando se decida.</p>
+              </article>
+              <article class="card rise" style="--d: 4">
+                <span class="avatar"><svg class="ic" aria-hidden="true"><use href="#i-folder"></use></svg></span>
+                <h3>Los planes y este deck</h3>
+                <p class="path">integrador_front_v3/tmp/docs/promo</p>
+                <p class="muted">El plan general, los de las 7 etapas, las notas de la sesión y este deck. La carpeta <code>tmp</code> no se sube al repo.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 36 · Glosario ================= -->
+        <section class="slide" id="s-glosario" data-part="Extras" data-title="Palabras raras">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Extras</p>
+              <h2>Palabras raras, en criollo</h2>
+            </div>
+            <dl class="gloss">
+              <div><dt>Campaña o promoción</dt><dd>El evento de descuentos de Mercado Libre: "Día del padre", "Hot sale".</dd></div>
+              <div><dt>Oferta</dt><dd>Una publicación sumada (o que se puede sumar) a una campaña.</dd></div>
+              <div><dt>Candidata</dt><dd>Una oferta que todavía no se sumó. Tiene el botón Participar.</dd></div>
+              <div><dt>Programada y Activa</dt><dd>Ya se sumó: Programada si la campaña no empezó, Activa si está en curso.</dd></div>
+              <div><dt>Seller</dt><dd>El vendedor: el cliente de Grow2on.</dd></div>
+              <div><dt>Cofondeada</dt><dd>Campaña de Mercado Libre donde el descuento lo ponen entre los dos.</dd></div>
+              <div><dt>Pre-acordada</dt><dd>Campaña que un agente de Mercado Libre acordó con el vendedor.</dd></div>
+              <div><dt>Meli+</dt><dd>Un descuento más alto para compradores con suscripción Meli+.</dd></div>
+              <div><dt>MLA y SKU</dt><dd>MLA: el código de la publicación en Mercado Libre. SKU: el código del producto del cliente.</dd></div>
+              <div><dt>Popup y panel lateral</dt><dd>La ventana del medio y el panel que se abre a la derecha (en código: modal y drawer).</dd></div>
+              <div><dt>Aviso o toast</dt><dd>El cartelito de "¡Listo!" que aparece arriba a la derecha.</dd></div>
+              <div><dt>Masivo</dt><dd>Hacer la misma acción con varias ofertas a la vez.</dd></div>
+              <div><dt>Flag</dt><dd>Un interruptor para prender o apagar una función sin subir código nuevo.</dd></div>
+              <div><dt>Modo demo</dt><dd>La app con datos inventados ("Datos simulados"), para probar sin depender de la API.</dd></div>
+              <div><dt>Captura real</dt><dd>Imagen sacada de la app funcionando en modo demo, no del Figma.</dd></div>
+              <div><dt>Commit y subir</dt><dd>Commit: guardar los cambios en tu compu. Subir (push): mandarlos al repo; dev se publica solo.</dd></div>
+              <div><dt>Tolgee</dt><dd>Donde viven los textos de la app, para cambiarlos sin tocar código.</dd></div>
+              <div><dt>ERS</dt><dd>El documento de requerimientos que escribieron Gonzalo y Verónica.</dd></div>
+              <div><dt>Front y API</dt><dd>El front es la pantalla. La API es lo que la pantalla llama para leer y guardar, y la que habla con Mercado Libre. La ERS define qué datos van y vienen.</dd></div>
+              <div><dt>Choque</dt><dd>Algo en lo que la ERS y el Figma no coinciden. La app sigue una de las dos.</dd></div>
+              <div><dt>Supuesto</dt><dd>Lo que la app hace donde la ERS no dice nada.</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <!-- ================= 37 · Cierre ================= -->
+        <section class="slide" id="s-frase" data-part="Extras" data-title="En una frase">
+          <div class="inner">
+            <div class="head">
+              <div class="grad-bar" aria-hidden="true"></div>
+              <p class="eyebrow">Resumen</p>
+              <p class="quote">Promociones de Mercado Libre <span class="hl">ya funciona en la app</span>: las 7 etapas están programadas y probadas en modo demo. Ya está en dev: falta que el back haga los cambios del contrato, probarlo con la API real y prender el flag.</p>
+            </div>
+            <div class="tiles">
+              <article class="card tile rise" style="--d: 1">
+                <span class="num">7</span>
+                <h3>etapas terminadas</h3>
+                <p class="small muted">Productos, el Asistente y el detalle. Ya en dev, con el flag apagado.</p>
+                <span class="chip chip-front">Vos</span>
+              </article>
+              <article class="card tile rise" style="--d: 2">
+                <span class="num">924</span>
+                <h3>pruebas automáticas nuevas</h3>
+                <p class="small muted">Todas en verde, igual que las 1.765 de toda la app.</p>
+                <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>En verde</span>
+              </article>
+              <article class="card tile rise" style="--d: 3">
+                <span class="num">6</span>
+                <h3>arreglos del back primero</h3>
+                <p class="small muted">Lo que hoy rompe, y después el contrato pedido por pedido.</p>
+                <span class="chip chip-back">Gabi</span>
+              </article>
+            </div>
+            <div class="cover-actions">
+              <button class="btn btn-primary" type="button" data-go="s-columna">Ver cómo se ve hoy</button>
+              <button class="btn" type="button" data-go="s-probalo">Probalo vos</button>
+              <button class="btn" type="button" data-go="s-camino">Qué falta</button>
+              <button class="btn" type="button" data-go="s-contrato">El contrato con el back</button>
+              <button class="btn" type="button" data-go="1">Volver al inicio</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="navbar">
+        <button class="btn" id="btnPrev" type="button" aria-label="Hoja anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"></use></svg><span class="lbl">Anterior</span></button>
+        <div class="progress" id="progress" aria-label="Partes del deck"></div>
+        <span class="counter" id="counter" aria-live="polite">1 / 34</span>
+        <button class="btn btn-primary" id="btnNext" type="button" aria-label="Hoja siguiente"><span class="lbl">Siguiente</span><svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
+      </footer>
+    </div>
+
+    <dialog id="indexDialog" aria-labelledby="idxTitle">
+      <div class="idx-head">
+        <h2 id="idxTitle" style="font-size: 26px">Índice</h2>
+        <button class="btn btn-icon" id="btnIndexClose" type="button" aria-label="Cerrar índice"><svg class="ic" aria-hidden="true"><use href="#i-x"></use></svg></button>
+      </div>
+      <div class="idx-body" id="idxBody"></div>
+    </dialog>
+
+    <dialog id="zoomDialog" aria-label="Captura en grande">
+      <button class="btn btn-icon zoom-close" type="button" aria-label="Cerrar"><svg class="ic" aria-hidden="true"><use href="#i-x"></use></svg></button>
+      <div class="zoom-body">
+        <img id="zoomImg" alt="" />
+        <p class="zoom-cap" id="zoomCap"></p>
+      </div>
+    </dialog>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+    <script src="deck.js"></script>
+  </body>
+</html>
