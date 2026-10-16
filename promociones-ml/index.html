@@ -149,13 +149,13 @@
               <button class="map-card rise" type="button" data-go="s-foto" style="--d: 4">
                 <span class="map-num">4</span>
                 <h3>Cómo está y qué falta</h3>
-                <p class="muted">La foto de hoy, el contrato con el back, lo que falta para producción y los mensajes listos.</p>
-                <span class="small">Hojas 26 a 37</span>
+                <p class="muted">La foto de hoy, el contrato con el back y lo que falta para producción.</p>
+                <span class="small">Hojas 26 a 33</span>
               </button>
             </div>
             <div class="oneliner rise" style="--d: 5">
               <p class="eyebrow">Si tenés un minuto</p>
-              <p>Las <strong>7 etapas están terminadas</strong> y probadas en modo demo, en Productos y en el Asistente. Ya está subido a dev, con el flag apagado. Para producción falta que el back haga los cambios del contrato (<a href="#29" data-go="s-back-rompe">hoja 29</a>) y probarlo con la API real. <a href="#39" data-go="s-frase">Ver el resumen</a>.</p>
+              <p>Las <strong>7 etapas están terminadas</strong> y probadas en modo demo, en Productos y en el Asistente. Ya está subido a dev, con el flag apagado. Para producción falta que el back haga los cambios del contrato (<a href="#29" data-go="s-back-rompe">hoja 29</a>) y probarlo con la API real. <a href="#35" data-go="s-frase">Ver el resumen</a>.</p>
             </div>
           </div>
         </section>
@@ -462,8 +462,8 @@
               <p class="lead">Solo en las vinculaciones con Mercado Libre. Tocando una etiqueta se abre el popup de la hoja siguiente.</p>
             </div>
             <figure class="shot rise" style="--d: 1">
-              <img srcset="shots/b1-columna.webp 2x" alt="Fila de una vinculación con Mercado Libre en Productos: a la derecha, la columna Promociones con dos etiquetas, en 6 promociones y 2 promociones disponibles" decoding="async" />
-              <figcaption><b>Producto de Prueba 1</b> · la publicación está en 6 promociones y todavía puede sumarse a 2.</figcaption>
+              <img srcset="shots/b1-columna.webp 2x" alt="Fila de una vinculación con Mercado Libre en Productos: a la derecha, la columna Promociones con dos etiquetas, en 6 promociones y 4 promociones disponibles" decoding="async" />
+              <figcaption><b>Producto de Prueba 1</b> · la publicación aparece en 6 promociones y todavía puede sumarse a 4.</figcaption>
             </figure>
             <div class="states states-3">
               <div class="card rise" style="--d: 2">
@@ -475,7 +475,7 @@
                 <p class="muted"><strong>No tiene ninguna:</strong> "Sin promociones", y el popup se abre vacío.</p>
               </div>
               <div class="card rise" style="--d: 4">
-                <p class="muted">Como pide la ERS, "en 6" cuenta también las disponibles (está en las preguntas para Gonzalo). Con el flag apagado, la tabla queda <strong>exactamente igual que antes</strong>.</p>
+                <p class="muted">Como pide la ERS, "en 6" cuenta también las disponibles. Sin cuentas de Mercado Libre o con el flag apagado, la tabla queda <strong>exactamente igual que antes</strong>.</p>
               </div>
             </div>
             <p class="zoom-hint">Tocá cualquier captura para verla grande.</p>
@@ -586,7 +586,7 @@
                   <figcaption><b>2 · Confirmás.</b> Te dice cómo queda el precio.</figcaption>
                 </figure>
                 <figure class="shot rise" style="--d: 3">
-                  <img srcset="shots/widget-progreso.webp 2x" alt="Aviso flotante: Confirmando participación, 4 de 9 ofertas, barra de progreso, 4 exitosas y 0 con error" decoding="async" />
+                  <img srcset="shots/widget-progreso.webp 2x" alt="Aviso flotante: Confirmando participación, 1 de 2 ofertas, barra de progreso a la mitad, 0 exitosas y 1 con error" decoding="async" />
                   <figcaption><b>3 · Mirás el avance,</b> oferta por oferta.</figcaption>
                 </figure>
               </div>
@@ -695,7 +695,7 @@
                 </div>
               </div>
               <figure class="shot shot-tall rise" style="--d: 2">
-                <img srcset="shots/drawer-campana-calendario.webp 2x" alt="Panel Modificar promoción de Día del padre: nombre editable y vigencia 09/10/2026 – 22/10/2026 en un solo campo, con el calendario de octubre 2026 abierto: el 9 marcado como inicio fijo, del 10 al 14 atenuados y del 15 al 22 habilitados, con el 22 como fin" decoding="async" />
+                <img srcset="shots/drawer-campana-calendario.webp 2x" alt="Panel Modificar promoción de Día del padre: nombre editable y vigencia 11/10/2026 – 24/10/2026 en un solo campo, con el calendario de octubre 2026 abierto: el 11 marcado como inicio fijo, del 12 al 16 atenuados y del 17 al 24 habilitados, con el 24 como fin" decoding="async" />
                 <figcaption><b>Modificar promoción</b> · un campo de rango: si ya empezó, el inicio queda fijo y cada click elige el fin, desde mañana.</figcaption>
               </figure>
               <div class="shot-stack">
@@ -718,15 +718,15 @@
               <p class="lead">En Productos, el menú <strong>⋯</strong> de una vinculación con Mercado Libre → <strong>Detalles de publicación</strong>. Al final hay una sección nueva.</p>
               <div class="note">
                 <svg class="ic" aria-hidden="true"><use href="#i-book"></use></svg>
-                <p>Muestra las promociones en las que <strong>participa</strong> (no las disponibles): nombre, origen y vigencia. Se actualiza sola cuando te sumás, te salís o eliminás una campaña.</p>
+                <p>Muestra las promociones en las que <strong>participa</strong> (no las disponibles): nombre, estado de la oferta ("Oferta Programada" u "Oferta Activa"), origen y vigencia. Se actualiza sola cuando te sumás, te salís o eliminás una campaña.</p>
               </div>
-              <div class="note note-warn">
-                <svg class="ic" aria-hidden="true"><use href="#i-question"></use></svg>
-                <p>Esta sección está en el Figma pero <strong>no en la ERS</strong>. Entra en esta versión.</p>
+              <div class="note">
+                <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+                <p>Está en el Figma y <strong>no en la ERS</strong>: entra en esta versión.</p>
               </div>
             </div>
             <figure class="shot rise" style="--d: 2">
-              <img srcset="shots/detalle-seccion.webp 2x" alt="Sección Promociones Mercado Libre del panel Detalles de publicación: Día del padre, Hot sale, Black Friday y Semana del hogar, cada una con origen y vigencia" decoding="async" />
+              <img srcset="shots/detalle-seccion.webp 2x" alt="Sección Promociones Mercado Libre del panel Detalles de publicación: Hot sale y Semana del hogar, cada una con el badge Oferta Activa, origen y vigencia" decoding="async" />
               <figcaption><b>Promociones Mercado Libre</b> · la última sección del panel Detalles de publicación.</figcaption>
             </figure>
           </div>
@@ -834,7 +834,7 @@
             <div class="head">
               <p class="eyebrow">Parte 3 · Cómo se construyó</p>
               <h2>De dónde salió todo</h2>
-              <p class="lead">De dos documentos, nada más. Cada uno manda en lo suyo: cuando no coinciden, no se discute quién gana. Se anota y se le pregunta a quien corresponde.</p>
+              <p class="lead">De dos documentos, nada más. Cada uno manda en lo suyo: cuando no coinciden, se anota qué dice cada uno y la app sigue una.</p>
             </div>
             <div class="cast cast-3">
               <article class="card rise" style="--d: 1">
@@ -861,7 +861,7 @@
             </div>
             <div class="note">
               <svg class="ic" aria-hidden="true"><use href="#i-layers"></use></svg>
-              <p>Cada vez que la ERS y el Figma no coinciden se anotó qué dice cada uno, qué hace la app y quién lo confirma: <strong>son 29</strong>. Lo que ninguno de los dos define está en la <a href="#28" data-go="s-huecos">hoja 28</a>, con cómo queda.</p>
+              <p>Cada vez que la ERS y el Figma no coinciden se anotó qué dice cada uno y qué hace la app: <strong>son 29</strong>. Lo que ninguno de los dos define está en la <a href="#28" data-go="s-huecos">hoja 28</a>, con cómo queda.</p>
             </div>
           </div>
         </section>
@@ -869,7 +869,7 @@
         <!-- ================= 23 · Proceso ================= -->
         <section class="slide" id="s-proceso" data-part="3 · Cómo se construyó" data-title="Cómo se trabajó cada etapa">
           <div class="inner split">
-            <div class="stack-md">
+            <div class="stack-md tiles-host">
               <p class="eyebrow">Parte 3 · Cómo se construyó</p>
               <h2>Cómo se trabajó cada etapa</h2>
               <p class="lead">Siempre igual y una etapa por vez: ninguna pasó a la siguiente sin cumplir los cinco pasos.</p>
@@ -941,20 +941,20 @@
           <div class="inner">
             <div class="head">
               <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
-              <h2>La foto de hoy: 24 piezas</h2>
-              <p class="lead">Contamos cada pieza —el código, lo que falta para producción y las respuestas pendientes— y le pusimos un estado. Tocá un estado para ver cuáles son.</p>
+              <h2>La foto de hoy: 19 piezas</h2>
+              <p class="lead">Contamos cada pieza —el código y lo que falta para producción— y le pusimos un estado. Tocá un estado para ver cuáles son.</p>
             </div>
             <div class="donut-wrap">
               <figure class="donut rise" style="--d: 1">
-                <svg id="donutSvg" viewBox="0 0 240 240" role="img" aria-label="Gráfico de dona: 13 piezas listas, 6 que faltan hacer y 5 a confirmar. Total 24.">
-                  <text class="d-num" x="120" y="124" text-anchor="middle">24</text>
+                <svg id="donutSvg" viewBox="0 0 240 240" role="img" aria-label="Gráfico de dona: 12 piezas listas, 6 que faltan hacer y 1 a analizar. Total 19.">
+                  <text class="d-num" x="120" y="124" text-anchor="middle">19</text>
                   <text class="d-lbl" x="120" y="148" text-anchor="middle">piezas</text>
                 </svg>
               </figure>
               <div class="stack-md rise" style="--d: 2">
                 <div class="legend" id="donutLegend"></div>
                 <div class="card donut-detail" id="donutDetail" aria-live="polite">
-                  <p><strong>En criollo:</strong> el <strong>front está terminado</strong>, probado en modo demo y subido a dev. Para producción, el back tiene que hacer los cambios del contrato (hojas 29 a 31), y después falta probarlo con la API real y prender el flag. Las preguntas a Gonzalo y Verónica tienen una respuesta provisoria ya aplicada.</p>
+                  <p><strong>En criollo:</strong> el <strong>front está terminado</strong>, probado en modo demo y subido a dev. Para producción, el back tiene que hacer los cambios del contrato (<a href="#29" data-go="s-back-rompe">hojas 29 y 30</a>), y después falta probarlo con la API real y prender el flag.</p>
                 </div>
               </div>
             </div>
@@ -971,7 +971,7 @@
             <div class="teams teams-cols" id="teams">
               <div class="team-col" data-teams="plan camino"></div>
               <div class="team-col" data-teams="front"></div>
-              <div class="team-col" data-teams="back gonzalo vero"></div>
+              <div class="team-col" data-teams="back"></div>
             </div>
           </div>
         </section>
@@ -1065,7 +1065,7 @@
                     <div><dt>Si no llega</dt><dd>Sin stream, el aviso muestra el resultado final cuando termina. Sin <code>failures</code>, la tabla de las que fallaron queda vacía.</dd></div>
                   </dl>
                   <div class="gap-shots gap-shots-2">
-                    <figure class="shot shot-plain"><img srcset="shots/widget-progreso.webp 2x" alt="Aviso flotante: Confirmando participación, 4 de 9 ofertas, barra de progreso, 4 exitosas y 0 con error" decoding="async" /><figcaption><b>Avance</b> · se actualiza con cada evento.</figcaption></figure><figure class="shot shot-plain"><img srcset="shots/widget-resultado.webp 2x" alt="Aviso de resultado: Activación de ofertas, 1 exitosa y 1 con error, y la tabla con la oferta que no se pudo activar y su motivo" decoding="async" /><figcaption><b>Resultado</b> · la tabla sale de <code>failures</code>.</figcaption></figure>
+                    <figure class="shot shot-plain"><img srcset="shots/widget-progreso.webp 2x" alt="Aviso flotante: Confirmando participación, 1 de 2 ofertas, barra de progreso a la mitad, 0 exitosas y 1 con error" decoding="async" /><figcaption><b>Avance</b> · se actualiza con cada evento.</figcaption></figure><figure class="shot shot-plain"><img srcset="shots/widget-resultado.webp 2x" alt="Aviso de resultado: Activación de ofertas, 1 exitosa y 1 con error, y la tabla con la oferta que no se pudo activar y su motivo" decoding="async" /><figcaption><b>Resultado</b> · la tabla sale de <code>failures</code>.</figcaption></figure>
                   </div>
                 </div>
               </article>
@@ -1291,7 +1291,7 @@
                 <div class="gap-body">
                   <dl class="gap-info">
                     <div><dt>El front espera</dt><dd><code>totalOffers</code> y <code>availableOffers</code> en cada vinculación con ML.</dd></div>
-                    <div><dt>El back hoy</dt><dd>Los suma (<code>FunctionsSchemas.js:497</code>) con una llamada a ML por publicación, siempre, también para quien no usa promociones. Si ML falla para una, <code>getItemPromotions</code> tira y la excepción sube. Cuenta todos los tipos de promoción de ML; el popup muestra solo los tres (es la pregunta 1 para Gonzalo).</dd></div>
+                    <div><dt>El back hoy</dt><dd>Los suma (<code>FunctionsSchemas.js:497</code>) con una llamada a ML por publicación, siempre, también para quien no usa promociones. Si ML falla para una, <code>getItemPromotions</code> tira y la excepción sube. Cuenta todos los tipos de promoción de ML, como dice la ERS (3.1.4), aunque el popup muestre solo los tres.</dd></div>
                     <div class="gap-done"><dt>Cambiar en el back</dt><dd>try/catch por publicación (sin el dato, <code>null</code>). A analizar: el costo de esa llamada en el listado.</dd></div>
                   </dl>
                 </div>
@@ -1306,69 +1306,6 @@
                   </dl>
                 </div>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- ================= Mensaje para Gabi ================= -->
-        <section class="slide" id="s-msg-gabi" data-part="4 · Cómo está y qué falta" data-title="Qué pedirle a Gabi">
-          <div class="inner split split-even">
-            <div class="stack-md">
-              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
-              <h2>Qué pedirle a Gabi (el back)</h2>
-              <p class="lead">Todo lo de las tres hojas anteriores, en un mensaje listo para copiar. Va con el archivo y la línea de cada punto, así lo encuentra sin buscar.</p>
-              <div class="asks">
-                <p class="ask"><span class="n">6</span><span><strong>Arreglos que hoy rompen</strong>: el gateway no levanta, modificar no anda, la oferta no se lee, ML rechaza y da OK, "Todas" y la campaña de cada oferta.</span></p>
-                <p class="ask"><span class="n">2</span><span><strong>Nombres</strong> que no coinciden con la ERS.</span></p>
-                <p class="ask"><span class="n">5</span><span><strong>Datos que faltan</strong> en cada oferta: precio, Meli+, catálogo, los % de ML y el rango.</span></p>
-                <p class="ask"><span class="n">8</span><span><strong>Respuestas y errores</strong>: fallas con motivo, cursor vencido, total, estados, fechas.</span></p>
-                <p class="ask ask-q"><span class="n">?</span><span><strong>3 para analizar:</strong> el total en la lista de campañas, el costo de las llamadas a ML y el avance en vivo.</span></p>
-              </div>
-            </div>
-            <div class="msg rise" style="--d: 2">
-              <div class="msg-head">
-                <span class="chip chip-back">Para Gabi</span>
-                <button class="btn" type="button" data-copy="msgGabi"><svg class="ic" aria-hidden="true"><use href="#i-copy"></use></svg><span class="copy-label">Copiar mensaje</span></button>
-              </div>
-<pre id="msgGabi">¡Hola Gabi! Revisé la rama feature/precio-promocion del api gateway (0f5523dc, 29/09) contra el front de Promociones ML (IDW-2862). Te paso lo que hay que tocar para que front y back se acoplen, ordenado por prioridad. Cómo lo resolvés adentro es tuyo: lo que importa es lo que entra y lo que sale.
-
-1. Lo que hoy rompe
-1.1 El gateway no levanta: MercadoLibreRoute.js:32 usa meliCtrl.updateCampaign, que no existe (el .bind sobre undefined tira al cargar las rutas). El método de campañas está como updateOffer (MercadoLibreController.js:967).
-1.2 Por lo mismo, updateOffer está dos veces y la segunda pisa a la primera: PUT /mercadolibre/offers responde 400 "ServiceId y campaign_id son requeridos".
-1.3 mapOffer (MercadoLibreClass.js:2570) arma "compaign" y "endDate"; el front espera "campaign" y "finishDate" (ERS 3.2.4). Con eso no se puede leer ninguna oferta.
-1.4 callService no rechaza cuando ML responde 4xx/5xx (core/handler.js resuelve con el status), así que participar, modificar, dejar y editar o eliminar una campaña dan OK aunque ML diga que no. Hay que mirar response.status y devolver el motivo de ML.
-1.5 GET /mercadolibre/campaigns exige serviceId. Con "Todas las integraciones" el front manda companyId (ERS 3.6.4): tiene que devolver las campañas de todas las cuentas de ML de la compañía, cada una con su serviceId y serviceName.
-1.6 GET /mercadolibre/campaigns/:id reusa mapOffer y la campaña de cada oferta queda con el MLA como id, sin nombre, tipo ni fechas. Tiene que ir la campaña del pedido (campaign_id y campaignType, más su nombre y fechas).
-
-2. Nombres que no coinciden con la ERS
-2.1 GET /offers: el front manda destinationId (MLA, MLAU o family), no listingId. Si no viene ni destinationId ni sku, 400 (hoy revienta con 500).
-2.2 DELETE /offers: cada oferta trae id (el de la oferta, null en SELLER_CAMPAIGN), no offerId. Hoy en SMART y PRE_NEGOTIATED no se manda el offer_id a ML.
-
-3. Datos que faltan en cada oferta (GET /offers y GET /campaigns/:id)
-3.1 originalPrice: el precio normal de la publicación (original_price de ML). Sin él no se puede pasar del % al precio.
-3.2 loyaltyDiscountPrice: el precio Meli+ cargado en las ofertas del seller, o null si no tiene.
-3.3 listing.isCatalog: el catalog_listing del ítem (ya lo pedís con getDataProducts).
-3.4 En las candidatas de ML (SMART y PRE_NEGOTIATED), sellerDiscount y destinationDiscount con sus porcentajes (seller_percentage y meli_percentage). Solo las candidatas del seller van en null (ERS 3.2.3).
-3.5 percentageRange en null cuando ML no informa el rango (hoy llega { min: null, max: null }).
-
-4. Respuestas y errores
-4.1 POST y DELETE /offers: además de success y failed, failures: [{ listing, campaign, campaignName, reason }] con el motivo de ML. De a una, si falla, { error: true, message } con el mensaje de ML (hoy "Error al crear la oferta").
-4.2 GET /campaigns/:id con el cursor vencido: un 4xx (hoy cualquier error es 500). El front recarga desde la primera página y avisa.
-4.3 GET /campaigns/:id: total (el paging.total de ML) y nextPage en null en la última página. Confirmame si searchAfter viene vacío ahí.
-4.4 GET /campaigns: status mapeado como en las ofertas (started → active, y el de las finalizadas). Las fechas en ISO, como ya vienen. ¿Puede llegar una campaña sin startDate o sin finishDate?
-4.5 PUT /campaigns/:id: la respuesta dice "Oferta actualizada correctamente". Y confirmame si ML acepta las fechas como las manda el front: 2026-10-20T00:00:00 y 2026-10-27T23:59:59, hora local, sin zona.
-4.6 DELETE /campaigns/:id: si ML responde sin cuerpo, hoy devuelve 500 aunque se haya borrado (if (result) sobre response.data). Mejor mirar el status.
-4.7 GET /products/relations (totalOffers y availableOffers): si ML falla para una publicación, getItemPromotions tira y la excepción sube. try/catch por publicación y null si falla.
-4.8 Rango del descuento: el front redondea el % a 2 decimales y tolera el borde (un precio que da 10,03% con un tope de 10% se muestra como 10% y deja confirmar). Si ML lo rechaza, que vuelva como falla con su motivo.
-
-5. Para analizar
-5.1 total también en GET /campaigns, por campaña, para mostrarlo con la tarjeta cerrada. Si suma una llamada a ML por campaña y la hace lenta, no va: el front usa el de la primera página.
-5.2 El costo de las llamadas a ML: relations hace una por publicación siempre (también para quien no usa promociones), y GET /campaigns/:id hace un GET /items por oferta (con getItemsDetail van de a 20).
-5.3 El avance en vivo de los masivos (ERS 3.3.4 y 3.5.4): hoy se procesan en serie y se responde al final. Te lo confirmo aparte.
-
-Lo que ya ajustó el front: manda serviceId también en la query de PUT /campaigns/:id, toma percentageRange sin los dos números como "sin rango" y, si GET /campaigns trae total, lo muestra con la tarjeta cerrada.
-
-¡Gracias!</pre>
             </div>
           </div>
         </section>
@@ -1404,166 +1341,13 @@ Lo que ya ajustó el front: manda serviceId también en la query de PUT /campaig
           </div>
         </section>
 
-        <!-- ================= 31 · Preguntas ================= -->
-        <section class="slide" id="s-preguntas" data-part="4 · Cómo está y qué falta" data-title="Preguntas para Gonzalo y Verónica">
-          <div class="inner">
-            <div class="head">
-              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
-              <h2>Preguntas para Gonzalo y Verónica</h2>
-              <p class="lead">Ninguna frena: cada una tiene una <strong>respuesta provisoria</strong> (en gris) que ya está aplicada en la app. Lo que no define la ERS lo resuelve el back (<a href="#28" data-go="s-huecos">hoja 28</a>). Los mensajes listos para copiar están en las <a href="#34" data-go="s-msg-gonzalo">hojas 34 y 35</a>.</p>
-            </div>
-            <div class="qcols">
-              <article class="card rise" style="--d: 1">
-                <span class="chip chip-ask">Para Gonzalo · la ERS</span>
-                <ol class="qlist">
-                  <li><span>"En N promociones": ¿cuenta las disponibles? ¿Y las promociones de otros tipos?<span class="prov">Mientras: lo que dice la ERS.</span></span></li>
-                  <li><span>La regla de "mejorar el descuento", ¿vale también para el Meli+?<span class="prov">Mientras: sí.</span></span></li>
-                  <li><span>Detalles de publicación: ¿lista todas o solo en las que participa?<span class="prov">Mientras: solo en las que participa.</span></span></li>
-                  <li><span>¿Dejar de participar en varias a la vez, también en Productos?<span class="prov">Mientras: sí, en los dos lugares.</span></span></li>
-                  <li><span>Campañas finalizadas: ¿se muestran? ¿Se editan? ¿Las fechas pueden quedar antes de hoy?<span class="prov">Mientras: se muestran, no se editan; las fechas desde hoy, y el fin desde mañana si ya empezó.</span></span></li>
-                  <li><span>"Sin promociones": ¿abre el popup vacío?<span class="prov">Mientras: sí.</span></span></li>
-                  <li class="new"><span>Tipo de promoción: ¿los nombres de la ERS son los que ve el vendedor?<span class="prov">Mientras: los de la ERS.</span></span></li>
-                </ol>
-              </article>
-              <article class="card rise" style="--d: 2">
-                <span class="chip chip-back">Para Verónica · el diseño</span>
-                <ol class="qlist" style="--c: var(--ink-back)">
-                  <li><span>Pantallas sin diseño: confirmar de a una, eliminar campaña, el avance de "dejar" en masa, Meli+ bloqueado, vacíos y errores, celu y modo oscuro.<span class="prov">Mientras: hechas con los componentes que ya existen (se ven en la Parte 2).</span></span></li>
-                  <li><span>El aviso de progreso no tiene botón de cerrar: ¿lo cortamos si se cuelga 60 segundos?<span class="prov">Mientras: sí.</span></span></li>
-                  <li><span>Colores: el verde y el rojo de los avisos se leían poco, y el texto naranja de los avisos amarillos también.<span class="prov">Mientras: tonos más oscuros y texto normal en los amarillos.</span></span></li>
-                  <li><span>Textos: "del 777-1044" (¿"del SKU…"?) y "Deja de participar" contra "Dejar de participar".<span class="prov">Mientras: los del Figma.</span></span></li>
-                </ol>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- ================= 32 · Mensaje para Gonzalo ================= -->
-        <section class="slide" id="s-msg-gonzalo" data-part="4 · Cómo está y qué falta" data-title="Qué pedirle a Gonzalo">
-          <div class="inner split split-even">
-            <div class="stack-md">
-              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
-              <h2>Qué pedirle a Gonzalo (la ERS)</h2>
-              <p class="lead">Las preguntas de la hoja anterior, en un mensaje listo para copiar. Cita las secciones de la ERS porque es su documento. Lo que la ERS no define va con el back (<a href="#31" data-go="s-msg-gabi">mensaje para Gabi</a>).</p>
-              <div class="asks">
-                <p class="ask"><span class="n">8</span><span><strong>Preguntas</strong>, cada una con su respuesta provisoria. Si está de acuerdo, le alcanza con un "ok".</span></p>
-                <p class="ask"><span class="n">1</span><span><strong>Decisión ya tomada</strong> donde la ERS y el Figma no coinciden, para que la valide.</span></p>
-                <p class="ask"><span class="n">6</span><span><strong>Erratas</strong> de la ERS: referencias cruzadas, un par de typos y una captura.</span></p>
-              </div>
-            </div>
-            <div class="msg rise" style="--d: 2">
-              <div class="msg-head">
-                <span class="chip chip-ask">Para Gonzalo</span>
-                <button class="btn" type="button" data-copy="msgGonzalo"><svg class="ic" aria-hidden="true"><use href="#i-copy"></use></svg><span class="copy-label">Copiar mensaje</span></button>
-              </div>
-<pre id="msgGonzalo">¡Hola Gonzalo! Ya tengo programado el front de Promociones ML (IDW-2862) sobre la ERS 1.1 y el Figma de Verónica, y lo probé con datos de prueba. Antes de probarlo con la API real me falta definir esto. Cada punto ya tiene una respuesta provisoria aplicada: si estás de acuerdo, con un "ok" alcanza. Lo que la ERS no define (datos, parámetros y formatos) lo estoy viendo con Gabi.
-
-Preguntas
-1. Columna de Productos (3.1.3): en "en N promociones", N incluye las candidatas, pero "en N" se lee como "participa en N" (el Figma muestra "en 2 promociones · 1 promoción disponible"). Además, 3.1.4 cuenta todas las ofertas que devuelve ML, de cualquier tipo, y el popup muestra solo los 3 tipos: el número puede no coincidir con las filas. Provisorio: lo que dice la ERS.
-2. Modificar oferta (3.4.3): "el descuento debe mejorar", ¿vale también para el Meli+, antes y después de que empiece la campaña? Provisorio: sí.
-3. Sección "Promociones Mercado Libre" en Detalles de publicación: entra en v1 y ya está hecha, al final del detalle. ¿Lista todas o solo en las que participa? Provisorio: solo las programadas o activas.
-4. Dejar de participar masivo en Productos: 3.5.1 lo nombra solo para el Asistente, pero 3.2.3 y el Figma lo ponen también en Productos. Provisorio: en los dos lados.
-5. Campañas (3.6.3 habla de "Activa o Pendiente"): ¿pueden venir finalizadas? ¿Se pueden editar o eliminar? Provisorio: se muestran como "Finalizada", sin lápiz. Al editar las fechas (3.7.3): una programada va desde hoy, y una en curso deja el inicio fijo y el fin desde mañana (no se la puede terminar hoy).
-6. "Sin promociones" (N = 0): ¿abre el popup vacío, como dice 3.1.3, o no se puede tocar? Provisorio: abre el popup.
-7. Tipo de promoción (3.3.2): uso tus nombres ("Creada por el seller", "Cofondeada automatizada", "Pre-acordada por publicación") en todas las pantallas. ¿Son los que tiene que ver el vendedor, o de cara al seller van otros? Provisorio: los de la ERS.
-8. Participar masivo en Productos: el modal del Figma dice "El precio de venta será $X". Con varias ofertas, ¿qué precio va? Provisorio: el menor.
-
-Decisiones que tomé (avisame si no estás de acuerdo)
-- Estado de la campaña: uso "Programada" (Figma) en lugar de "Pendiente" (3.6.3), igual que "Oferta Programada".
-
-Para corregir en la ERS (erratas)
-- 3.2.2: la captura muestra "20% off" y "$128.000" en una candidata de campaña del seller; 3.2.3 pide "-" en Descuento y Precio final, que es lo que muestra la app.
-- 3.2.3: "Dejar de participar" remite a 3.4 y el ícono de edición a 3.5 (están al revés).
-- 3.3.2: el segundo "Drawer con información del descuento (SELLER_CAMPAIGN)" es el de SMART / PRE_NEGOTIATED.
-- 3.5.4: dice "las ofertas que se desean activar" (es desactivar).
-- 3.6.4: en "GET /mercadolibre/campaigns/{$CAMPAIGN_ID}&amp;nextPage=" va "?" en lugar de "&amp;".
-- 3.7.1: remite a 3.7 en lugar de 3.6.
-
-¡Gracias!</pre>
-            </div>
-          </div>
-        </section>
-
-        <!-- ================= 33 · Mensaje para Verónica ================= -->
-        <section class="slide" id="s-msg-veronica" data-part="4 · Cómo está y qué falta" data-title="Qué pedirle a Verónica">
-          <div class="inner split split-even">
-            <div class="stack-md">
-              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
-              <h2>Qué pedirle a Verónica (el diseño)</h2>
-              <p class="lead">Va con el link al archivo, el id de cada frame y el link a las capturas de este deck, así ve cómo quedó sin buscar.</p>
-              <div class="asks">
-                <p class="ask"><span class="n">7</span><span><strong>Estados sin dibujo</strong>, cada uno con lo que se hizo mientras tanto.</span></p>
-                <p class="ask"><span class="n">12</span><span><strong>Avisos</strong> de dónde la ERS y el Figma no coinciden y la app sigue a la ERS.</span></p>
-                <p class="ask"><span class="n">3</span><span><strong>Decisiones</strong> donde el Figma no es claro, para que las valide.</span></p>
-                <p class="ask ask-q"><span class="n">?</span><span><strong>3 preguntas:</strong> el corte del aviso de progreso, el contraste de los colores y dos textos.</span></p>
-                <p class="ask"><span class="n">5</span><span><strong>Cosas para limpiar</strong> en el archivo: typos y restos de versiones viejas.</span></p>
-              </div>
-            </div>
-            <div class="msg rise" style="--d: 2">
-              <div class="msg-head">
-                <span class="chip chip-back">Para Verónica</span>
-                <button class="btn" type="button" data-copy="msgVeronica"><svg class="ic" aria-hidden="true"><use href="#i-copy"></use></svg><span class="copy-label">Copiar mensaje</span></button>
-              </div>
-<pre id="msgVeronica">¡Hola Verónica! Ya implementé Promociones ML (IDW-2862) con tu Figma "Promociones ML", page "Flujo Promos":
-https://www.figma.com/design/FUirN704xawTNd2IDcbIwi/Promociones-ML?node-id=326-10498
-
-Capturas de cómo quedó (modo demo), hojas 9 a 19:
-https://kevinzaracho.github.io/decks/promociones-ml/#9
-
-Te paso lo que necesito, ordenado. Nada frena: lo que no tenía diseño lo resolví con los componentes que ya existen, pero si lo dibujás queda como corresponde. Entre paréntesis va el id del frame.
-
-1. Estados que no tienen diseño
-- Confirmación de "Dejar de participar" de a una (la ERS 3.5.3 pide confirmar siempre). Provisorio: el modal de dejar masivo de Productos (567:9279), en singular.
-- Confirmación de "Eliminar promoción". Provisorio: el mismo modal, con el botón Eliminar en rojo.
-- Widgets de progreso y de resultado para "Dejar de participar" masivo (la ERS 3.5.3 pide el progreso; solo están los de participar). Provisorio: los mismos, con "Dando de baja las ofertas..." y "Baja de ofertas".
-- Meli+ bloqueado: la campaña ya empezó y no hay Meli+ cargado, al participar y al modificar (ERS 3.3.3 y 3.4.3). Provisorio: campos deshabilitados + "La promoción ya empezó: no se puede agregar descuento Meli+."
-- Cargando, vacío y error: popup de Productos, tarjetas del Asistente y sección de Detalles de publicación. También el aviso cuando la búsqueda falla en una de las cuentas de ML.
-- La etiqueta "Sin promociones" de la columna de Productos, y la tarjeta de Promociones en el inicio del Asistente (¿lleva ilustración?).
-- Mobile y modo oscuro de todo.
-
-2. Donde la ERS y el Figma no coinciden y la app sigue a la ERS (es un aviso; si podés, actualizá el archivo)
-- "Dejar de participar" de a una pide confirmación antes del toast (702:6957 va directo al toast).
-- "Modificar promoción" (552:6111): la ERS pide cambiar inicio y fin (14 días como máximo, y el inicio no se toca si la campaña ya empezó). Va un solo campo de rango, solo fecha (sin hora). Si la campaña ya empezó, el inicio queda fijo y cada click elige el fin, desde mañana.
-- Meli+ con la campaña activa (Group 442, 652:8409): editable para mejorarlo, no como texto fijo.
-- Meli+ al participar con la campaña ya empezada: deshabilitado (330:12727 y 333:17209 lo muestran editable con la campaña Activa).
-- Asistente (326:10534): tarjetas cerradas por defecto; contador con el total de la campaña ("{n} publicaciones") en lugar de "2 publicaciones participando"; badge de cada fila según su estado real (hay filas con "Oferta Activa" y botón Participar).
-- Barra de selección siempre con los 3 botones, deshabilitados cuando no aplican (333:17209 muestra solo uno).
-- Las candidatas de campañas del seller no se pueden tildar: van sin checkbox, como en 326:10534 (en 333:16999 "Día del padre" aparece tildada).
-- Popup de Productos (333:16999): "Día del padre" es una candidata del seller y la ERS pide "-" en Descuento y Precio final, no "20% off" y "$128.000". Y el lápiz va solo en campañas del seller (está en "Hot sale", que es de Mercado Libre).
-- Tipo de promoción con los nombres de la ERS: "Creada por el seller", "Cofondeada automatizada" y "Pre-acordada por publicación".
-- Al participar, "Descuento general" con asterisco en Productos y en el Asistente (333:17209 dice "Descuento").
-- Selección: al tildar una oferta para sumarse, solo se pueden tildar otras para sumarse (y lo mismo para salirse). En 333:16999 aparecen mezcladas.
-- Modal de dejar masivo del Asistente (331:15433): "Al confirmar, las {n} ofertas seleccionadas dejarán de participar de sus promociones.", porque solo se dan de baja las tildadas.
-
-3. Lo que decidí donde el Figma no es claro (avisame si no va)
-- Widget de resultado (798:8295): la tabla de errores arranca abierta y el chevron la cierra.
-- Detalles de publicación (562:6691): muestra solo las promociones en las que participa, con la vigencia en formato largo ("1 - 20 junio") en todas.
-- Avisos amarillos (cuenta que no respondió en la búsqueda y precio faltante): texto en el color normal, porque el naranja no llegaba al contraste mínimo.
-
-4. Preguntas
-- El widget de progreso (798:7838) no tiene botón de cerrar. Si no llega respuesta en 60 segundos, ¿lo cortamos con un aviso? Provisorio: sí.
-- Contraste: el verde y el rojo de los widgets (teal-6 / red-6) y el gris de "1 promoción disponible" se leen poco en texto chico. Provisorio: green-8 / red-8; el gris queda como en el Figma.
-- Textos: el toast "La publicación MLA12333 del SKU00321..." con SKUs como "777-1044" se lee "del 777-1044": ¿va "del SKU 777-1044"? Y el botón de la fila dice "Deja de participar" mientras la barra dice "Dejar de participar": ¿es a propósito? Provisorio: los textos del Figma.
-
-5. Para limpiar en el archivo
-- Typos: "El descuento también ser verá..." (drawers del seller) y "Editaste de la promoción..." (555:7389).
-- Group 442, 443 y 445 siguen con el helper viejo "Ofrecé al menos un 5%".
-- Widget de resultado (798:8295): dice "1 exitosa" y "Ofertas activadas 2" en el mismo frame.
-- Los fondos detrás de los drawers y modales del Asistente muestran la versión vieja de la pantalla.
-- Asistente (326:10534): la 2ª tarjeta no tiene la cuenta en el título y su "Mostrar más" queda afuera de la tarjeta.
-
-¡Gracias!</pre>
-            </div>
-          </div>
-        </section>
-
         <!-- ================= 34 · El camino ================= -->
         <section class="slide" id="s-camino" data-part="4 · Cómo está y qué falta" data-title="El camino a producción">
           <div class="inner split">
             <div class="stack-md">
               <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
               <h2>El camino a producción</h2>
-              <p class="lead">Ocho paradas. Las cuatro primeras ya están.</p>
+              <p class="lead">Siete paradas. Las cuatro primeras ya están.</p>
               <div class="legend-row">
                 <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Listo</span>
                 <span class="chip chip-front">Vos (front)</span>
@@ -1579,10 +1363,9 @@ Te paso lo que necesito, ordenado. Nada frena: lo que no tenía diseño lo resol
               <li class="stop stop-done rise" style="--d: 2"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Las 7 etapas, programadas y probadas</h3><p class="small muted">En modo demo: en compu, en celular y en modo oscuro.</p></div></li>
               <li class="stop stop-done rise" style="--d: 3"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Commits y textos</h3><p class="small muted">2 commits: la función completa y el arreglo del modo demo. Los textos ya están en Tolgee.</p></div></li>
               <li class="stop stop-done rise" style="--d: 4"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Subido a dev (07/10)</h3><p class="small muted">Se publica solo en el dev. Ahí se puede probar con datos de prueba, como en la hoja 20.</p></div></li>
-              <li class="stop stop-all rise" style="--d: 5"><span class="stop-dot">5</span><div class="stop-body"><h3>Mandar los mensajes a Gabi, Gonzalo y Verónica</h3><p class="small muted">Hojas 31, 34 y 35. El de Gabi va primero: sin esos cambios no se puede probar con la API real.</p></div></li>
-              <li class="stop stop-all rise" style="--d: 6"><span class="stop-dot">6</span><div class="stop-body"><h3>El back hace los cambios del contrato</h3><p class="small muted">Los seis puntos que rompen primero (hoja 29), después nombres, datos y respuestas (hoja 30).</p></div></li>
-              <li class="stop stop-all rise" style="--d: 7"><span class="stop-dot">7</span><div class="stop-body"><h3>Probarlo con la API real</h3><p class="small muted">Cuando esté disponible, contra la ERS y lo que responda Gonzalo. Lo que cambie se toca en un solo lugar.</p></div></li>
-              <li class="stop stop-front rise" style="--d: 8"><span class="stop-dot">8</span><div class="stop-body"><h3>Prender el flag para los clientes</h3><p class="small muted">El último paso de todos.</p></div></li>
+              <li class="stop stop-all rise" style="--d: 5"><span class="stop-dot">5</span><div class="stop-body"><h3>El back hace los cambios del contrato</h3><p class="small muted">Los seis puntos que rompen primero (hoja 29), después nombres, datos y respuestas (hoja 30). Sin eso no se puede probar con la API real.</p></div></li>
+              <li class="stop stop-all rise" style="--d: 6"><span class="stop-dot">6</span><div class="stop-body"><h3>Probarlo con la API real</h3><p class="small muted">Cuando esté disponible, contra la ERS y el contrato. Lo que cambie se toca en un solo lugar.</p></div></li>
+              <li class="stop stop-front rise" style="--d: 7"><span class="stop-dot">7</span><div class="stop-body"><h3>Prender el flag para los clientes</h3><p class="small muted">El último paso de todos.</p></div></li>
             </ol>
           </div>
         </section>
@@ -1653,8 +1436,8 @@ Te paso lo que necesito, ordenado. Nada frena: lo que no tenía diseño lo resol
               <div><dt>Tolgee</dt><dd>Donde viven los textos de la app, para cambiarlos sin tocar código.</dd></div>
               <div><dt>ERS</dt><dd>El documento de requerimientos que escribieron Gonzalo y Verónica.</dd></div>
               <div><dt>Front y API</dt><dd>El front es la pantalla. La API es lo que la pantalla llama para leer y guardar, y la que habla con Mercado Libre. La ERS define qué datos van y vienen.</dd></div>
-              <div><dt>Choque</dt><dd>Algo en lo que la ERS y el Figma no coinciden. La app elige una opción y alguien la confirma.</dd></div>
-              <div><dt>Supuesto</dt><dd>Lo que la app asume donde la ERS no dice nada, hasta que Gonzalo responda.</dd></div>
+              <div><dt>Choque</dt><dd>Algo en lo que la ERS y el Figma no coinciden. La app sigue una de las dos.</dd></div>
+              <div><dt>Supuesto</dt><dd>Lo que la app hace donde la ERS no dice nada.</dd></div>
             </dl>
           </div>
         </section>
@@ -1681,19 +1464,17 @@ Te paso lo que necesito, ordenado. Nada frena: lo que no tenía diseño lo resol
                 <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>En verde</span>
               </article>
               <article class="card tile rise" style="--d: 3">
-                <span class="num">3</span>
-                <h3>mensajes listos</h3>
-                <p class="small muted">Uno para Gabi (el back), otro para Gonzalo (la ERS) y otro para Verónica (el diseño).</p>
-                <span class="chip chip-ask">Para mandar</span>
+                <span class="num">6</span>
+                <h3>arreglos del back primero</h3>
+                <p class="small muted">Lo que hoy rompe, y después el contrato pedido por pedido.</p>
+                <span class="chip chip-back">Gabi</span>
               </article>
             </div>
             <div class="cover-actions">
               <button class="btn btn-primary" type="button" data-go="s-columna">Ver cómo se ve hoy</button>
               <button class="btn" type="button" data-go="s-probalo">Probalo vos</button>
               <button class="btn" type="button" data-go="s-camino">Qué falta</button>
-              <button class="btn" type="button" data-go="s-msg-gabi">Mensaje para Gabi</button>
-              <button class="btn" type="button" data-go="s-msg-gonzalo">Mensaje para Gonzalo</button>
-              <button class="btn" type="button" data-go="s-msg-veronica">Mensaje para Verónica</button>
+              <button class="btn" type="button" data-go="s-contrato">El contrato con el back</button>
               <button class="btn" type="button" data-go="1">Volver al inicio</button>
             </div>
           </div>
@@ -1703,7 +1484,7 @@ Te paso lo que necesito, ordenado. Nada frena: lo que no tenía diseño lo resol
       <footer class="navbar">
         <button class="btn" id="btnPrev" type="button" aria-label="Hoja anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"></use></svg><span class="lbl">Anterior</span></button>
         <div class="progress" id="progress" aria-label="Partes del deck"></div>
-        <span class="counter" id="counter" aria-live="polite">1 / 37</span>
+        <span class="counter" id="counter" aria-live="polite">1 / 35</span>
         <button class="btn btn-primary" id="btnNext" type="button" aria-label="Hoja siguiente"><span class="lbl">Siguiente</span><svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
       </footer>
     </div>

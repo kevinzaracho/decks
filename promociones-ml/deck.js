@@ -18,6 +18,13 @@
         /* storage blocked: the deck still works, it just forgets */
       }
     },
+    remove(key) {
+      try {
+        localStorage.removeItem(key);
+      } catch {
+        /* storage blocked */
+      }
+    },
   };
   const deck = $("#deck");
   const slides = $$(".slide");
@@ -222,22 +229,69 @@
   });
   zoomDialog.addEventListener("click", () => zoomDialog.close());
 
-  /* ---------- Theme ---------- */
+  /* ---------- Theme ----------
+     Follows the system until the button picks one; that choice is saved. Picking the
+     system's own theme clears it, so the deck goes back to following the system.
+     The key changed (v2) so a choice saved by the old toggle doesn't pin the theme. */
+  const THEME_KEY = "promos-deck-theme-v2";
   const root = document.documentElement;
   const darkQuery = matchMedia("(prefers-color-scheme: dark)");
-  const savedTheme = store.get("promos-deck-theme");
+  const systemTheme = () => (darkQuery.matches ? "dark" : "light");
+  store.remove("promos-deck-theme");
+  const savedTheme = store.get(THEME_KEY);
   if (savedTheme === "dark" || savedTheme === "light") root.dataset.theme = savedTheme;
-  const effectiveTheme = () => root.dataset.theme || (darkQuery.matches ? "dark" : "light");
+  const effectiveTheme = () => root.dataset.theme || systemTheme();
   function paintThemeButton() {
     const dark = effectiveTheme() === "dark";
     $("#themeIcon").setAttribute("href", dark ? "#i-sun" : "#i-moon");
     $("#btnTheme").setAttribute("aria-label", dark ? "Pasar a modo claro" : "Pasar a modo oscuro");
   }
-  $("#btnTheme").addEventListener("click", () => {
-    const next = effectiveTheme() === "dark" ? "light" : "dark";
-    root.dataset.theme = next;
-    store.set("promos-deck-theme", next);
+  function applyTheme(next) {
+    if (next === systemTheme()) {
+      delete root.dataset.theme;
+      store.remove(THEME_KEY);
+    } else {
+      root.dataset.theme = next;
+      store.set(THEME_KEY, next);
+    }
     paintThemeButton();
+  }
+  /* The new theme grows as a circle from the button (same idea as the app's dark-mode
+     switch, which grows from the center). Without View Transitions or with reduced
+     motion, it just switches. */
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let themeTransition = null;
+  $("#btnTheme").addEventListener("click", async () => {
+    /* A click mid-animation finishes the running one first (it also unsticks a transition
+       that never got a frame, e.g. in a background tab). */
+    if (themeTransition) {
+      themeTransition.skipTransition();
+      await themeTransition.updateCallbackDone.catch(() => {});
+    }
+    const next = effectiveTheme() === "dark" ? "light" : "dark";
+    if (!document.startViewTransition || reducedMotion.matches || document.hidden) {
+      applyTheme(next);
+      return;
+    }
+    const box = $("#btnTheme").getBoundingClientRect();
+    const x = box.left + box.width / 2;
+    const y = box.top + box.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const transition = document.startViewTransition(() => applyTheme(next));
+    themeTransition = transition;
+    transition.ready
+      .then(() =>
+        root.animate(
+          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+          { duration: 500, easing: "cubic-bezier(0.32, 0, 0.67, 0)", pseudoElement: "::view-transition-new(root)" },
+        ),
+      )
+      .catch(() => {});
+    transition.finished
+      .catch(() => {})
+      .finally(() => {
+        if (themeTransition === transition) themeTransition = null;
+      });
   });
   darkQuery.addEventListener("change", paintThemeButton);
   paintThemeButton();
@@ -301,15 +355,13 @@
   const STATUSES = [
     { id: "prod", label: "Listo", short: "Listo", icon: "i-check" },
     { id: "falta", label: "Falta hacer", short: "Falta hacer", icon: "i-x" },
-    { id: "confirmar", label: "Hay que confirmarlo", short: "A confirmar", icon: "i-question" },
+    { id: "confirmar", label: "Hay que analizarlo", short: "A analizar", icon: "i-question" },
   ];
   const TEAMS = [
     { id: "plan", label: "El plan", sub: "documentos y este deck" },
     { id: "front", label: "El código del front", sub: "las 7 etapas · tu parte" },
     { id: "camino", label: "Para llegar a producción", sub: "vos y la API" },
     { id: "back", label: "Cambios del back", sub: "Gabi · api gateway" },
-    { id: "gonzalo", label: "Respuestas de Gonzalo", sub: "la ERS" },
-    { id: "vero", label: "Respuestas de Verónica", sub: "el Figma" },
   ];
   const PIECES = [
     { team: "plan", st: "prod", name: "Plan general y planes de las 7 etapas" },
@@ -330,12 +382,7 @@
     { team: "back", st: "falta", name: "Nombres de la ERS: destinationId e id" },
     { team: "back", st: "falta", name: "Datos nuevos: precio, Meli+, catálogo, % de ML" },
     { team: "back", st: "falta", name: "Respuestas: fallas con motivo, cursor, total, estados" },
-    { team: "back", st: "confirmar", name: "A analizar: total en la lista, costo, avance en vivo" },
-    { team: "gonzalo", st: "confirmar", name: "Reglas: \"en N\", Meli+, fechas y finalizadas" },
-    { team: "gonzalo", st: "prod", name: "Detalles de publicación: entra en v1" },
-    { team: "vero", st: "confirmar", name: "Pantallas sin diseño (hechas con lo que ya existe)" },
-    { team: "vero", st: "confirmar", name: "Donde la app sigue a la ERS: el contador" },
-    { team: "vero", st: "confirmar", name: "Textos, colores y contraste para revisar" },
+    { team: "back", st: "confirmar", name: "Total en la lista, costo y avance en vivo" },
   ];
   const statusById = Object.fromEntries(STATUSES.map((s) => [s.id, s]));
   const escapeHtml = (text) =>

@@ -2028,6 +2028,14 @@ dialog#indexDialog::backdrop {
   color: var(--paper);
 }
 
+/* ============ Theme switch (view transition) ============
+   No cross-fade: deck.js grows the new theme as a circle from the button. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* ============ Motion preferences ============ */
 @media (prefers-reduced-motion: reduce) {
   .slide,
@@ -2303,13 +2311,24 @@ dialog#indexDialog::backdrop {
 }
 
 /* Pasos numerados del proceso / dos columnas de preguntas */
-.tiles-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+/* The four tiles live in half a slide: they go 2×2 unless their column is wide enough for
+   four, and the number scales with its own tile (not the viewport) so "1.765" never overflows. */
+.tiles-host {
+  container-type: inline-size;
 }
-@media (max-width: 900px) {
+.tiles-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@container (min-width: 760px) {
   .tiles-4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+.tiles-4 .tile {
+  container-type: inline-size;
+}
+.tiles-4 .tile .num {
+  font-size: clamp(32px, 30cqi, 64px);
 }
 .qcols {
   display: grid;
