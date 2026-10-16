@@ -2850,3 +2850,113 @@ dialog#zoomDialog::backdrop {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ============ 15/10: hoja 29, un hueco por tarjeta con contexto y capturas ============ */
+/* Texto arriba (2 columnas) y capturas abajo, a todo el ancho de la tarjeta: así se ven a su tamaño real. */
+.gaps {
+  display: grid;
+  gap: 18px;
+}
+.gap {
+  gap: 16px;
+}
+.gap-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.gap-head h3 {
+  margin: 0;
+}
+.gap-body {
+  display: grid;
+  gap: 16px;
+}
+.gap-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+  margin: 0;
+}
+.gap-info > div {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+}
+.gap-info dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.gap-info dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.gap-ask dd {
+  font-weight: 600;
+  color: var(--ink-ask);
+}
+.gap-shots {
+  display: grid;
+  gap: 14px;
+  align-items: start;
+}
+.gap-shots-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+/* La 3ª captura de una tarjeta de dos columnas va a lo ancho. */
+.gap-shots-2 > :nth-child(3) {
+  grid-column: 1 / -1;
+}
+.gap-shots .shot figcaption {
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .gap-info,
+  .gap-shots-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ============ 15/10: contrato con el back ============ */
+.chip-bad {
+  background: var(--soft-bad);
+  color: var(--ink-bad);
+}
+.chip-warn {
+  background: var(--soft-warn);
+  color: var(--ink-warn);
+}
+.chip-ok {
+  background: var(--soft-ok);
+  color: var(--ink-ok);
+}
+.chip-method {
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+}
+.gap-head {
+  flex-wrap: wrap;
+}
+.gap-head h3 {
+  flex-basis: 100%;
+}
+.gap-path {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+/* La fila de lo que hay que hacer (o de cómo queda) se lee primero. */
+.gap-done dd {
+  font-weight: 600;
+  color: var(--ink);
+}
+.gap-info code {
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
