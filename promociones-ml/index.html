@@ -150,12 +150,12 @@
                 <span class="map-num">4</span>
                 <h3>Cómo está y qué falta</h3>
                 <p class="muted">La foto de hoy, el contrato con el back y lo que falta para producción.</p>
-                <span class="small">Hojas 26 a 33</span>
+                <span class="small">Hojas 26 a 32</span>
               </button>
             </div>
             <div class="oneliner rise" style="--d: 5">
               <p class="eyebrow">Si tenés un minuto</p>
-              <p>Las <strong>7 etapas están terminadas</strong> y probadas en modo demo, en Productos y en el Asistente. Ya está subido a dev, con el flag apagado. Para producción falta que el back haga los cambios del contrato (<a href="#29" data-go="s-back-rompe">hoja 29</a>) y probarlo con la API real. <a href="#35" data-go="s-frase">Ver el resumen</a>.</p>
+              <p>Las <strong>7 etapas están terminadas</strong> y probadas en modo demo, en Productos y en el Asistente. Ya está subido a dev, con el flag apagado. Para producción falta que el back haga los cambios del contrato (<a href="#29" data-go="s-back-rompe">hoja 29</a>) y probarlo con la API real. <a href="#34" data-go="s-frase">Ver el resumen</a>.</p>
             </div>
           </div>
         </section>
@@ -1310,37 +1310,6 @@
           </div>
         </section>
 
-        <!-- ================= 30 · Lo nuevo ================= -->
-        <section class="slide" id="s-nuevo" data-part="4 · Cómo está y qué falta" data-title="Lo que apareció al programar">
-          <div class="inner">
-            <div class="head">
-              <p class="eyebrow">Parte 4 · Cómo está y qué falta</p>
-              <h2>Lo que apareció al programar</h2>
-              <p class="lead">Tres puntos para el back y unos detalles chicos del front. Cada punto tiene qué hace la app mientras tanto (en gris).</p>
-            </div>
-            <div class="qcols">
-              <article class="card rise" style="--d: 1">
-                <span class="chip chip-back">Para el back · Gabi</span>
-                <ol class="qlist">
-                  <li><span><strong>Respuestas "OK" sin contenido.</strong> Si al activar, modificar o eliminar la API responde bien pero sin datos, hoy la app lo toma como error: al eliminar una campaña mostraría error aunque se haya eliminado.<span class="prov">Mientras: cuenta como error. Si confirma que pasa, se cambia en un lugar.</span></span></li>
-                  <li><span><strong>Campañas ya empezadas sin fechas.</strong> Si llega una así, al elegir el fin el formulario queda trabado hasta cancelar.<span class="prov">Mientras: se asume que siempre vienen las fechas.</span></span></li>
-                  <li><span><strong>Redondeo en el tope del rango.</strong> Con un rango de 5% a 10%, un precio que da 10,03% se muestra como 10% y deja confirmar; la API podría rechazarlo.<span class="prov">Mientras: se tolera el redondeo.</span></span></li>
-                </ol>
-              </article>
-              <article class="card rise" style="--d: 2">
-                <span class="chip chip-front">Para vos · detalles del front</span>
-                <ol class="qlist" style="--c: var(--ink-front)">
-                  <li><span><strong>Errores de conexión en inglés.</strong> Si se corta internet o la API tarda, el aviso muestra el texto técnico en inglés. Pasa en todas las acciones de promociones y venía de antes.<span class="prov">Arreglo simple: un mensaje en castellano.</span></span></li>
-                  <li><span><strong>El popup, mientras carga,</strong> no reserva la columna de las casillas: al terminar, las columnas se corren un poco.</span></li>
-                  <li><span><strong>El aviso de progreso</strong> (abajo a la derecha) puede tapar el botón Confirmar de un panel abierto.</span></li>
-                  <li><span><strong>Lectores de pantalla:</strong> en una tarjeta del Asistente, las casillas y el lápiz se anuncian todos con el nombre de la campaña. Así lo pide el plan.</span></li>
-                  <li><span><strong>Solo en desarrollo:</strong> al abrir la app por primera vez se ven medio segundo los nombres internos de los textos.</span></li>
-                </ol>
-              </article>
-            </div>
-          </div>
-        </section>
-
         <!-- ================= 34 · El camino ================= -->
         <section class="slide" id="s-camino" data-part="4 · Cómo está y qué falta" data-title="El camino a producción">
           <div class="inner split">
@@ -1361,8 +1330,8 @@
             <ol class="road">
               <li class="stop stop-done rise" style="--d: 1"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>El plan, a partir de la ERS y el Figma</h3><p class="small muted">Armado el 29/09 y revisado el 02/10.</p></div></li>
               <li class="stop stop-done rise" style="--d: 2"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Las 7 etapas, programadas y probadas</h3><p class="small muted">En modo demo: en compu, en celular y en modo oscuro.</p></div></li>
-              <li class="stop stop-done rise" style="--d: 3"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Commits y textos</h3><p class="small muted">2 commits: la función completa y el arreglo del modo demo. Los textos ya están en Tolgee.</p></div></li>
-              <li class="stop stop-done rise" style="--d: 4"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Subido a dev (07/10)</h3><p class="small muted">Se publica solo en el dev. Ahí se puede probar con datos de prueba, como en la hoja 20.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 3"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Commits y textos</h3><p class="small muted">La función completa (07/10) y los ajustes del 14 al 16/10. Los textos están en Tolgee, salvo 5 del 16/10.</p></div></li>
+              <li class="stop stop-done rise" style="--d: 4"><span class="stop-dot"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></span><div class="stop-body"><h3>Subido a dev (07/10 y 16/10)</h3><p class="small muted">Se publica solo en el dev. Ahí se puede probar con datos de prueba, como en la hoja 20.</p></div></li>
               <li class="stop stop-all rise" style="--d: 5"><span class="stop-dot">5</span><div class="stop-body"><h3>El back hace los cambios del contrato</h3><p class="small muted">Los seis puntos que rompen primero (hoja 29), después nombres, datos y respuestas (hoja 30). Sin eso no se puede probar con la API real.</p></div></li>
               <li class="stop stop-all rise" style="--d: 6"><span class="stop-dot">6</span><div class="stop-body"><h3>Probarlo con la API real</h3><p class="small muted">Cuando esté disponible, contra la ERS y el contrato. Lo que cambie se toca en un solo lugar.</p></div></li>
               <li class="stop stop-front rise" style="--d: 7"><span class="stop-dot">7</span><div class="stop-body"><h3>Prender el flag para los clientes</h3><p class="small muted">El último paso de todos.</p></div></li>
@@ -1382,16 +1351,16 @@
               <article class="card rise" style="--d: 1">
                 <span class="avatar avatar-front"><svg class="ic" aria-hidden="true"><use href="#i-laptop"></use></svg></span>
                 <h3>El código</h3>
-                <p class="path">integrador_front_v3 · rama dev · versión 4.288.3</p>
-                <p class="muted">Dos commits, <strong>ya en dev</strong>: uno con la función completa y otro con el arreglo del modo demo.</p>
+                <p class="path">integrador_front_v3 · rama dev · versión 4.293.1</p>
+                <p class="muted">La función completa y los ajustes de la revisión, <strong>ya en dev</strong> (último push: 16/10).</p>
                 <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>En dev</span>
               </article>
               <article class="card rise" style="--d: 2">
                 <span class="avatar avatar-back"><svg class="ic" aria-hidden="true"><use href="#i-book"></use></svg></span>
                 <h3>Los textos</h3>
                 <p class="path">Tolgee · namespace mlPromotions</p>
-                <p class="muted">Ya están cargados en Tolgee: los 157 textos de Promociones y el nombre de la pestaña del Asistente.</p>
-                <span class="pill" data-st="prod"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>En Tolgee</span>
+                <p class="muted">Están en Tolgee los textos de Promociones y el nombre de la pestaña del Asistente. Faltan subir 5 del 16/10: 4 nuevos (el aviso arrastrable y los errores de conexión) y 1 cambiado (el nombre del lápiz para lectores de pantalla).</p>
+                <span class="pill" data-st="falta"><svg class="ic" aria-hidden="true"><use href="#i-x"></use></svg>Faltan 5</span>
               </article>
               <article class="card rise" style="--d: 3">
                 <span class="avatar avatar-ml"><svg class="ic" aria-hidden="true"><use href="#i-flag"></use></svg></span>
@@ -1484,7 +1453,7 @@
       <footer class="navbar">
         <button class="btn" id="btnPrev" type="button" aria-label="Hoja anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"></use></svg><span class="lbl">Anterior</span></button>
         <div class="progress" id="progress" aria-label="Partes del deck"></div>
-        <span class="counter" id="counter" aria-live="polite">1 / 35</span>
+        <span class="counter" id="counter" aria-live="polite">1 / 34</span>
         <button class="btn btn-primary" id="btnNext" type="button" aria-label="Hoja siguiente"><span class="lbl">Siguiente</span><svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
       </footer>
     </div>
