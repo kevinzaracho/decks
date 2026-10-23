@@ -376,14 +376,16 @@
     { team: "front", st: "prod", name: "Textos en Tolgee" },
     { team: "front", st: "prod", name: "Arreglo del modo demo" },
     { team: "front", st: "prod", name: "Ajuste al back del 20/10" },
-    { team: "camino", st: "prod", name: "Subido a dev (07/10 al 22/10), con el flag apagado" },
+    { team: "front", st: "prod", name: "Ajuste al avance en vivo del back" },
+    { team: "camino", st: "prod", name: "Subido a dev (07/10 al 23/10), con el flag apagado" },
     { team: "camino", st: "falta", name: "Probarlo con la API real" },
     { team: "camino", st: "falta", name: "Prender el flag para los clientes" },
     { team: "back", st: "prod", name: "Los seis arreglos que rompían" },
     { team: "back", st: "prod", name: "Nombres de la ERS: destinationId e id" },
     { team: "back", st: "prod", name: "Datos nuevos: precio, Meli+, catálogo, % de ML" },
     { team: "back", st: "prod", name: "Respuestas: fallas con motivo, cursor, total, estados" },
-    { team: "back", st: "confirmar", name: "Avance en vivo, costos y motivos de ML" },
+    { team: "back", st: "prod", name: "Avance en vivo (stream)" },
+    { team: "back", st: "confirmar", name: "Costos y motivos de ML" },
   ];
   const statusById = Object.fromEntries(STATUSES.map((s) => [s.id, s]));
   const escapeHtml = (text) =>
