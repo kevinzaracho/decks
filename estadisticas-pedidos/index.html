@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Estadísticas en el Inicio</title>
+    <meta name="description" content="Guía rápida de las estadísticas de pedidos en el Inicio de Grow2on: qué muestra, cómo se usa, de dónde sale cada número y las preguntas más comunes." />
+    <link rel="icon" href="img/grow2on_iso.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" /></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" /></symbol>
+        <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" /></symbol>
+        <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M5.2 18.8l1.4-1.4M17.4 6.6l1.4-1.4" /></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z" /></symbol>
+        <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5M12 8v.1" /></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1" /><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" /></symbol>
+        <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z" /></symbol>
+        <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4.5h11l3.5 3.5v11.5H5z" /><path d="M8.5 4.5v5h7v-5M8.5 19.5v-5h7v5" /></symbol>
+        <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3.5 4.5h2l2 11h11l2-8H7" /><circle cx="9.5" cy="19" r="1.3" /><circle cx="17" cy="19" r="1.3" /></symbol>
+        <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M14.5 9.2c-.5-.8-1.4-1.2-2.5-1.2-1.5 0-2.6.8-2.6 2s1.1 1.6 2.6 2 2.7.9 2.7 2.1-1.2 2-2.7 2c-1.2 0-2.2-.5-2.7-1.3M12 6.5v1.5M12 16v1.5" /></symbol>
+        <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4.5h8v5a4 4 0 0 1-8 0z" /><path d="M8 6.5H5v1.5a3 3 0 0 0 3 3M16 6.5h3v1.5a3 3 0 0 1-3 3M12 13.5V17M8.5 20h7M10 17h4" /></symbol>
+      </defs>
+    </svg>
+
+    <div class="deck" id="deck">
+      <header class="topbar">
+        <a class="brand" href="#1" data-go="1">
+          <img src="img/grow2on_iso.svg" alt="" />
+          <span class="brand-name">Estadísticas en el Inicio</span>
+        </a>
+        <span class="part-chip" id="partChip">Inicio</span>
+        <div class="top-actions">
+          <button class="btn btn-icon" id="btnIndex" type="button" aria-haspopup="dialog">
+            <svg class="ic" aria-hidden="true"><use href="#i-grid"></use></svg><span class="lbl">Índice</span>
+          </button>
+          <button class="btn btn-icon" id="btnTheme" type="button" aria-label="Cambiar tema">
+            <svg class="ic" aria-hidden="true"><use id="themeIcon" href="#i-moon"></use></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="viewport" id="viewport">
+        <!-- ================= Portada ================= -->
+        <section class="slide" id="s-portada" data-part="Inicio" data-title="Portada">
+          <div class="inner split cover-split">
+            <div class="stack-md">
+              <img class="cover-logo logo-light rise" src="img/grow2on.svg" alt="Grow2on" />
+              <img class="cover-logo logo-dark rise" src="img/grow2on_dark.svg" alt="Grow2on" />
+              <p class="eyebrow rise" style="--d: 1">Guía rápida · disponible próximamente</p>
+              <h1 class="rise" style="--d: 1">Cómo viene el negocio, <span class="grad-text">apenas entrás</span></h1>
+              <p class="lead rise" style="--d: 2">El Inicio de Grow2on ahora muestra <strong>pedidos, facturación y ticket promedio</strong> de todos los canales, con un gráfico de la evolución y una página de <strong>Reportes</strong> para profundizar.</p>
+              <div class="cover-actions rise" style="--d: 3">
+                <button class="btn btn-primary btn-xl" type="button" data-go="next">Empezar <svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
+                <button class="btn btn-xl" type="button" data-go="s-faq">Preguntas</button>
+              </div>
+              <p class="cover-hint rise" style="--d: 4"><kbd>←</kbd> <kbd>→</kbd> pasás de hoja · en el celu, deslizá · <kbd>I</kbd> abre el índice · tocá una captura para verla grande</p>
+            </div>
+            <figure class="shot cover-shot rise" style="--d: 2">
+              <img srcset="shots/inicio.webp 2x" alt="Inicio de Grow2on con el bloque Cómo viene el negocio: filtros, pedidos, monto total, ticket promedio y el gráfico de pedidos por canal" decoding="async" />
+              <figcaption><b>El Inicio nuevo</b> · capturas de la app con datos de prueba.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ================= Antes y ahora ================= -->
+        <section class="slide" id="s-antes" data-part="Inicio" data-title="Antes y ahora">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Para qué sirve</p>
+              <h2>Que el Inicio cuente cómo viene el negocio</h2>
+              <p class="lead">Antes el cliente solo veía módulos para contratar. Ahora ve <span class="hl">cuánto vendió, por qué canal y qué productos</span>; los módulos siguen debajo.</p>
+            </div>
+            <div class="ba">
+              <figure class="shot rise" style="--d: 1">
+                <img src="shots/inicio-antes.webp" alt="Inicio anterior de Grow2on: solo tarjetas de funcionalidades extras" decoding="async" />
+                <figcaption><b>Antes</b> · solo funcionalidades extras.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 2">
+                <img srcset="shots/inicio.webp 2x" alt="Inicio nuevo con las estadísticas de pedidos arriba de todo" decoding="async" />
+                <figcaption><b>Ahora</b> · las estadísticas arriba de todo.</figcaption>
+              </figure>
+            </div>
+            <div class="tiles q-tiles">
+              <article class="card tile rise" style="--d: 3"><svg class="ic tile-ic" aria-hidden="true"><use href="#i-cart"></use></svg><h3>¿Cuánto vendí?</h3><p class="small muted">Pedidos, monto total y ticket promedio del período que elijas.</p></article>
+              <article class="card tile rise" style="--d: 4"><svg class="ic tile-ic" aria-hidden="true"><use href="#i-coin"></use></svg><h3>¿Por dónde entra?</h3><p class="small muted">Cuánto aporta cada canal, en pedidos y en plata, día por día.</p></article>
+              <article class="card tile rise" style="--d: 5"><svg class="ic tile-ic" aria-hidden="true"><use href="#i-trophy"></use></svg><h3>¿Qué se vende más?</h3><p class="small muted">El top 10 de productos, en Reportes completos.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= El Inicio, por partes ================= -->
+        <section class="slide" id="s-inicio" data-part="1 · Cómo se usa" data-title="El Inicio, por partes">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · Cómo se usa</p>
+              <h2>El Inicio, por partes</h2>
+            </div>
+            <div class="shot-wrap">
+              <figure class="shot rise" style="--d: 1">
+                <span class="pin">
+                  <img srcset="shots/inicio.webp 2x" alt="Inicio con marcas numeradas en los filtros, los totales, el gráfico, los controles del gráfico y el acceso a Reportes" decoding="async" />
+                  <span class="mk" style="--x: 6%; --y: 18.8%">1</span>
+                  <span class="mk" style="--x: 6%; --y: 26.4%">2</span>
+                  <span class="mk" style="--x: 6%; --y: 42%">3</span>
+                  <span class="mk" style="--x: 74.6%; --y: 12.3%">4</span>
+                  <span class="mk" style="--x: 6%; --y: 88.9%">5</span>
+                </span>
+              </figure>
+              <ol class="mk-list">
+                <li class="rise" style="--d: 2"><span class="mk">1</span><div><strong>Filtros.</strong> Servicio, rango de fechas y estado de sincronización. Arranca en los últimos 30 días.</div></li>
+                <li class="rise" style="--d: 3"><span class="mk">2</span><div><strong>Totales.</strong> Pedidos del período, monto total y ticket promedio.</div></li>
+                <li class="rise" style="--d: 4"><span class="mk">3</span><div><strong>Evolución por canal.</strong> Barras apiladas, una por canal, con tres vistas y el pico marcado.</div></li>
+                <li class="rise" style="--d: 5"><span class="mk">4</span><div><strong>Ver gráficos por</strong> Cantidad o Monto, y el botón de opciones del gráfico.</div></li>
+                <li class="rise" style="--d: 6"><span class="mk">5</span><div><strong>Reportes completos.</strong> Rendimiento por canal y top 10 de productos, con los mismos filtros.</div></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Filtros ================= -->
+        <section class="slide" id="s-filtros" data-part="1 · Cómo se usa" data-title="Tres filtros, al instante">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · Cómo se usa</p>
+              <h2>Tres filtros, al instante</h2>
+              <p class="lead">Los números se actualizan apenas cambiás un filtro: no hay botón de buscar.</p>
+            </div>
+            <div class="shots filter-shots" style="--cols: 3">
+              <figure class="shot rise" style="--d: 1">
+                <img srcset="shots/filtro-servicio.webp 2x" alt="Filtro Servicio abierto: Todos los servicios y cada integración con su logo" decoding="async" />
+                <figcaption><b>Servicio</b> · todos o uno solo.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 2">
+                <img srcset="shots/filtro-fecha.webp 2x" alt="Filtro de fecha abierto con atajos (últimos 7, 30 y 90 días, este mes, mes pasado, este año) y un calendario de rango" decoding="async" />
+                <figcaption><b>Fecha</b> · un rango, con atajos.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 3">
+                <img srcset="shots/filtro-sync.webp 2x" alt="Filtro Estado de sincronización abierto: Todos los estados, Sincronizados y No sincronizados" decoding="async" />
+                <figcaption><b>Estado</b> · sincronizados o no.</figcaption>
+              </figure>
+            </div>
+            <div class="notes-3">
+              <div class="note rise" style="--d: 4">
+                <svg class="ic" aria-hidden="true"><use href="#i-bolt"></use></svg>
+                <p>La fecha siempre es un <strong>rango</strong>: de al menos dos días y hasta hoy. Los atajos marcan cuál está elegido.</p>
+              </div>
+              <div class="note rise" style="--d: 5">
+                <svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>
+                <p><strong>Sincronizado</strong> es un pedido que ya pasó al ERP. «No sincronizados» muestra los que todavía no.</p>
+              </div>
+              <div class="note rise" style="--d: 6">
+                <svg class="ic" aria-hidden="true"><use href="#i-link"></use></svg>
+                <p>Los filtros viajan <strong>en el link</strong>: Inicio y Reportes muestran lo mismo, y se puede compartir lo que estás viendo.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Gráfico ================= -->
+        <section class="slide" id="s-grafico" data-part="1 · Cómo se usa" data-title="Un gráfico, tres vistas">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · Cómo se usa</p>
+              <h2>Un gráfico, tres vistas</h2>
+              <p class="lead">En cantidad o en monto. Sobre cada barra: cada canal, su % y el total.</p>
+            </div>
+            <div class="shots views-grid" style="--cols: 2">
+              <figure class="shot rise" style="--d: 1">
+                <img srcset="shots/tooltip.webp 2x" alt="Gráfico Por día con el detalle del 9 de octubre: cada canal con su cantidad de pedidos y su porcentaje, y el total" decoding="async" />
+                <figcaption><b>Por día</b> · una barra por día, con el pico marcado.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 2">
+                <img srcset="shots/semana-monto.webp 2x" alt="Gráfico Por día de la semana en monto, de domingo a sábado" decoding="async" />
+                <figcaption><b>Por día de la semana</b> · suma el rango, de domingo a sábado.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 3">
+                <img srcset="shots/periodo.webp 2x" alt="Gráfico Por período agrupado por mes, de octubre del año pasado a octubre de este año, con las opciones Mes, Bimestre, Trimestre, Cuatrimestre, Semestre y Año" decoding="async" />
+                <figcaption><b>Por período</b> · el último año, de mes a año. No sigue las fechas.</figcaption>
+              </figure>
+              <figure class="shot rise" style="--d: 4">
+                <img srcset="shots/un-canal.webp 2x" alt="Estadísticas filtradas a un solo servicio: gráfico de un solo color, sin leyenda ni porcentajes" decoding="async" />
+                <figcaption><b>Un solo canal</b> · sin nada que comparar, sin leyenda ni %.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Opciones ================= -->
+        <section class="slide" id="s-opciones" data-part="1 · Cómo se usa" data-title="Opciones del gráfico">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · Cómo se usa</p>
+              <h2>Opciones para leer mejor el gráfico</h2>
+              <p class="lead">El botón al lado de Cantidad y Monto. Lo elegido <span class="hl">queda guardado en ese navegador</span>.</p>
+            </div>
+            <div class="opts">
+              <figure class="shot shot-plain opts-pop rise" style="--d: 1">
+                <img srcset="shots/popover.webp 2x" alt="Panel Opciones del gráfico: líneas de referencia (promedio, mediana, cuartiles, objetivo) y visualización (valores sobre las barras, banda de valores típicos, sombrear fines de semana, ver como porcentaje por canal)" decoding="async" />
+              </figure>
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 2">
+                  <img srcset="shots/lineas.webp 2x" alt="Gráfico por día con línea de promedio 160, objetivo 200, banda de valores típicos entre 128 y 196 y los fines de semana sombreados" decoding="async" />
+                  <figcaption><b>Con promedio, objetivo, banda y fines de semana.</b> Cada línea se nombra abajo, con su valor.</figcaption>
+                </figure>
+                <div class="note rise" style="--d: 3">
+                  <svg class="ic" aria-hidden="true"><use href="#i-save"></use></svg>
+                  <p>El <strong>objetivo</strong> se guarda aparte para cada vista y para cantidad o monto: una meta diaria no es una mensual. En «Por período», el sombreado marca el <strong>período en curso</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Reportes ================= -->
+        <section class="slide" id="s-reportes" data-part="1 · Cómo se usa" data-title="Reportes completos">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · Cómo se usa</p>
+              <h2>Reportes completos</h2>
+              <p class="lead">El Inicio resume; acá se compara canal por canal y producto por producto.</p>
+            </div>
+            <div class="shot-wrap">
+              <figure class="shot rise" style="--d: 1">
+                <span class="pin">
+                  <img srcset="shots/reportes.webp 2x" alt="Página Reportes completos con marcas numeradas: rendimiento por canal, top 10 de productos, Actualizar, Ver por canal y un producto sin relacionar" decoding="async" />
+                  <span class="mk" style="--x: 6%; --y: 25.8%">1</span>
+                  <span class="mk" style="--x: 6%; --y: 56%">2</span>
+                  <span class="mk" style="--x: 32.6%; --y: 63.9%">3</span>
+                  <span class="mk" style="--x: 40%; --y: 94.1%">4</span>
+                </span>
+              </figure>
+              <ol class="mk-list">
+                <li class="rise" style="--d: 2"><span class="mk">1</span><div><strong>Rendimiento por canal.</strong> Pedidos, monto, ticket promedio y participación de cada canal.</div></li>
+                <li class="rise" style="--d: 3"><span class="mk">2</span><div><strong>Top 10 más vendidos.</strong> Por unidades, con SKU, canal principal y monto. <strong>Actualizar</strong> lo vuelve a pedir: es la consulta que más tarda.</div></li>
+                <li class="rise" style="--d: 4"><span class="mk">3</span><div><strong>Ver por canal.</strong> El top 10 de un canal en particular.</div></li>
+                <li class="rise" style="--d: 5"><span class="mk">4</span><div><strong>Sin relacionar.</strong> Avisa cuando lo vendido no está relacionado con un producto del ERP.</div></li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Celu, oscuro y un canal ================= -->
+        <section class="slide" id="s-celu" data-part="1 · Cómo se usa" data-title="En el celu y en modo oscuro">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 1 · Cómo se usa</p>
+              <h2>En el celu y en modo oscuro</h2>
+            </div>
+            <div class="celu">
+              <div class="phones phones-2">
+                <figure class="shot rise" style="--d: 1">
+                  <img srcset="shots/celu-inicio.webp 2x" alt="Inicio en el celular: filtros, totales y gráfico apilados en una columna" decoding="async" />
+                  <figcaption><b>Inicio</b></figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 2">
+                  <img srcset="shots/celu-reportes.webp 2x" alt="Reportes completos en el celular, con las tablas que se deslizan de costado" decoding="async" />
+                  <figcaption><b>Reportes</b></figcaption>
+                </figure>
+              </div>
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 3">
+                  <img srcset="shots/oscuro-inicio.webp 2x" alt="Inicio en modo oscuro" decoding="async" />
+                  <figcaption><b>Modo oscuro</b> · el Inicio.</figcaption>
+                </figure>
+                <figure class="shot rise" style="--d: 4">
+                  <img srcset="shots/oscuro-reportes.webp 2x" alt="Reportes completos en modo oscuro" decoding="async" />
+                  <figcaption><b>Modo oscuro</b> · Reportes.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= De dónde salen los números ================= -->
+        <section class="slide" id="s-numeros" data-part="2 · Los números" data-title="De dónde sale cada número">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 2 · Los números</p>
+              <h2>De dónde sale cada número</h2>
+              <p class="lead">Todo sale de los pedidos que <span class="hl">llegaron a Grow2on</span> desde cada canal, ubicados por su fecha de creación.</p>
+            </div>
+            <div class="cases-grid cases-tight">
+              <div class="case rise" style="--d: 1"><span class="where-k">Pedidos en el período<small>Inicio</small></span><span class="see">Los pedidos creados en el rango, de los servicios y el estado elegidos.</span></div>
+              <div class="case rise" style="--d: 2"><span class="where-k">Monto total<small>Inicio</small></span><span class="see">La suma de los totales que informa cada canal, sin descontar descuentos.</span></div>
+              <div class="case rise" style="--d: 3"><span class="where-k">Ticket promedio<small>Inicio y Reportes</small></span><span class="see">Monto total dividido por la cantidad de pedidos.</span></div>
+              <div class="case rise" style="--d: 4"><span class="where-k">Participación<small>Reportes</small></span><span class="see">Qué parte de los pedidos aporta cada canal.</span></div>
+              <div class="case rise" style="--d: 5"><span class="where-k">Por período<small>Gráfico</small></span><span class="see">Del mismo mes del año pasado a hoy («Año»: este y el anterior). Sigue servicio y estado, no las fechas.</span></div>
+              <div class="case rise" style="--d: 6"><span class="where-k">Top 10<small>Reportes</small></span><span class="see">Por unidades vendidas (si empatan, por monto). Monto = unidades × precio. El envío no cuenta como producto.</span></div>
+              <div class="case rise" style="--d: 7"><span class="where-k">Canal principal<small>Top 10</small></span><span class="see">El canal donde más unidades se vendieron de ese producto.</span></div>
+              <div class="case rise" style="--d: 8"><span class="where-k">Pico<small>Debajo del gráfico</small></span><span class="see">La barra más alta del gráfico que estás viendo, con su valor.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= FAQ ================= -->
+        <section class="slide" id="s-faq" data-part="2 · Los números" data-title="Preguntas frecuentes">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 2 · Los números</p>
+              <h2>Las dudas más comunes</h2>
+            </div>
+            <div class="qcols">
+              <article class="card rise" style="--d: 1">
+                <span class="chip">Lo que se ve</span>
+                <ol class="qlist">
+                  <li><span><strong>¿Quién lo ve?</strong><span class="prov">Las empresas que lo tienen habilitado. Se activa por empresa y, con eso, ve todos sus canales.</span></span></li>
+                  <li><span><strong>¿Por qué no veo la comparación entre canales?</strong><span class="prov">Con un solo canal, porque lo filtraste o porque la empresa tiene uno, no hay nada que comparar y esas partes se ocultan.</span></span></li>
+                  <li><span><strong>¿Puedo ver un solo día?</strong><span class="prov">No: el filtro toma rangos de al menos dos días, hasta hoy.</span></span></li>
+                  <li><span><strong>¿Las opciones del gráfico se guardan?</strong><span class="prov">Sí, en ese navegador. En otra computadora o en el celu arranca de cero.</span></span></li>
+                  <li><span><strong>¿Se puede descargar en Excel?</strong><span class="prov">Por ahora no.</span></span></li>
+                </ol>
+              </article>
+              <article class="card rise" style="--d: 2">
+                <span class="chip">Los números</span>
+                <ol class="qlist">
+                  <li><span><strong>¿Por qué no coincide con lo que veo en el canal?</strong><span class="prov">Grow2on cuenta los pedidos que le llegaron, en cualquier estado y por fecha de creación. El canal puede filtrar por fecha de pago, sacar los cancelados o descontar otras cosas.</span></span></li>
+                  <li><span><strong>¿El monto incluye el envío?</strong><span class="prov">Es el total del pedido tal como lo informa cada canal: según el canal, puede incluirlo.</span></span></li>
+                  <li><span><strong>¿Por qué el top 10 aclara «solo se completa en las sincronizadas»?</strong><span class="prov">El detalle de productos de un pedido se completa al sincronizarlo con el ERP: un pedido sin sincronizar puede no sumar al top.</span></span></li>
+                  <li><span><strong>¿Qué hago con un producto «sin relacionar»?</strong><span class="prov">Relacionarlo en Productos con su producto del ERP, así se le sincronizan stock y precio.</span></span></li>
+                  <li><span><strong>¿Cada cuánto se actualiza?</strong><span class="prov">Cada vez que se entra o se cambia un filtro. Un pedido aparece apenas llega a Grow2on.</span></span></li>
+                </ol>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Mensajes ================= -->
+        <section class="slide" id="s-mensajes" data-part="2 · Los números" data-title="Los mensajes que puede ver el cliente">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 2 · Los números</p>
+              <h2>Los mensajes que puede ver el cliente</h2>
+              <p class="lead">Qué dice la app, qué significa y qué hacer.</p>
+            </div>
+            <div class="msg-split">
+              <figure class="shot rise" style="--d: 1">
+                <img srcset="shots/vacio.webp 2x" alt="Un servicio sin pedidos en el rango: totales en cero, ticket promedio con guion y el mensaje No hay pedidos en el rango seleccionado" decoding="async" />
+                <figcaption><b>Sin pedidos</b> · totales en cero y el ticket con un guion.</figcaption>
+              </figure>
+              <div class="cases-grid cases-tight msg-cases">
+                <div class="case rise" style="--d: 2"><span class="where-k">«No hay pedidos en el rango seleccionado.»<small>Gráfico, rendimiento o top 10</small></span><span class="see">No es un error: ese servicio o estado no tuvo pedidos en esas fechas. Probá con otro rango.</span></div>
+                <div class="case rise" style="--d: 3"><span class="where-k">«No pudimos cargar las estadísticas. Probá de nuevo en unos minutos.»<small>Inicio</small></span><span class="see">La consulta no respondió. Recargar o volver a entrar en un rato.</span></div>
+                <div class="case rise" style="--d: 4"><span class="where-k">«No pudimos cargar el rendimiento por canal.» · «… el top de productos.»<small>Reportes</small></span><span class="see">Falló una de las dos partes; la otra se ve igual. En el top, <strong>Actualizar</strong> lo vuelve a pedir.</span></div>
+                <div class="case rise" style="--d: 5"><span class="where-k">«Hay demasiadas barras: achicá el rango.»<small>Opciones del gráfico</small></span><span class="see">Los valores sobre las barras no entran con tantos días. Con un rango más corto, se activan.</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Probalo vos ================= -->
+        <section class="slide" id="s-probalo" data-part="3 · Probalo" data-title="Probalo vos en un minuto">
+          <div class="inner">
+            <div class="head">
+              <p class="eyebrow">Parte 3 · Probalo</p>
+              <h2>Probalo vos en un minuto</h2>
+              <p class="lead">En el entorno de prueba (integrador.dev.grow2on.com), con datos de prueba: no se toca ninguna cuenta real.</p>
+            </div>
+            <div class="mix">
+              <ol class="steps">
+                <li><span>En la pantalla de ingreso, tocá la <strong>nube</strong> → <strong>Datos simulados</strong> → <strong>Cambiar y recargar</strong>.<span class="d">Así todo sale de los datos de prueba.</span></span></li>
+                <li><span>Iniciá sesión con <strong>cualquier mail y contraseña</strong>.<span class="d">En modo demo cualquier dato entra.</span></span></li>
+                <li><span>El Inicio ya muestra <strong>Cómo viene el negocio</strong>. Cambiá filtros, vistas y opciones.</span></li>
+                <li><span>En <strong>Servicio</strong>, elegí <strong>Zeus → TiendaNube</strong> para ver un solo canal, o <strong>Zeus → Mercado Libre</strong> para ver el mensaje sin pedidos.</span></li>
+                <li><span>Tocá <strong>Ver reportes</strong> para el rendimiento por canal y el top 10.<span class="d">Dos productos del top aparecen sin relacionar a propósito.</span></span></li>
+              </ol>
+              <div class="shot-stack">
+                <figure class="shot rise" style="--d: 1">
+                  <img srcset="shots/origen-datos.webp 2x" alt="Menú Origen de datos con las opciones Backend real y Datos simulados, esta última marcada" decoding="async" />
+                  <figcaption><b>Paso 1</b> · la nube.</figcaption>
+                </figure>
+                <div class="note">
+                  <svg class="ic" aria-hidden="true"><use href="#i-info"></use></svg>
+                  <p>Los números de la demo son inventados y cambian con el rango de fechas, pero las pantallas son las mismas que va a ver el cliente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= Cierre ================= -->
+        <section class="slide" id="s-frase" data-part="Cierre" data-title="En una frase">
+          <div class="inner">
+            <div class="head">
+              <div class="grad-bar" aria-hidden="true"></div>
+              <p class="eyebrow">Resumen</p>
+              <p class="quote">Apenas entra, el cliente ve <span class="hl">cuánto vendió, por dónde y qué</span>. Disponible próximamente.</p>
+            </div>
+            <div class="tiles">
+              <article class="card tile rise" style="--d: 1">
+                <span class="num">3</span>
+                <h3>totales</h3>
+                <p class="small muted">Pedidos, monto y ticket promedio del período, en el Inicio.</p>
+              </article>
+              <article class="card tile rise" style="--d: 2">
+                <span class="num">3</span>
+                <h3>vistas del gráfico</h3>
+                <p class="small muted">Por día, por día de la semana y por período, en cantidad o en monto.</p>
+              </article>
+              <article class="card tile rise" style="--d: 3">
+                <span class="num">10</span>
+                <h3>más vendidos</h3>
+                <p class="small muted">En Reportes, junto con el rendimiento de cada canal.</p>
+              </article>
+            </div>
+            <div class="cover-actions">
+              <button class="btn btn-primary" type="button" data-go="s-inicio">Ver cómo se usa</button>
+              <button class="btn" type="button" data-go="s-faq">Preguntas frecuentes</button>
+              <button class="btn" type="button" data-go="s-probalo">Probalo vos</button>
+              <button class="btn" type="button" data-go="1">Volver al inicio</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="navbar">
+        <button class="btn" id="btnPrev" type="button" aria-label="Hoja anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"></use></svg><span class="lbl">Anterior</span></button>
+        <div class="progress" id="progress" aria-label="Partes del deck"></div>
+        <span class="counter" id="counter" aria-live="polite">1 / 13</span>
+        <button class="btn btn-primary" id="btnNext" type="button" aria-label="Hoja siguiente"><span class="lbl">Siguiente</span><svg class="ic" aria-hidden="true"><use href="#i-right"></use></svg></button>
+      </footer>
+    </div>
+
+    <dialog id="indexDialog" aria-labelledby="idxTitle">
+      <div class="idx-head">
+        <h2 id="idxTitle" style="font-size: 26px">Índice</h2>
+        <button class="btn btn-icon" id="btnIndexClose" type="button" aria-label="Cerrar índice"><svg class="ic" aria-hidden="true"><use href="#i-x"></use></svg></button>
+      </div>
+      <div class="idx-body" id="idxBody"></div>
+    </dialog>
+
+    <dialog id="zoomDialog" aria-label="Captura en grande">
+      <button class="btn btn-icon zoom-close" type="button" aria-label="Cerrar"><svg class="ic" aria-hidden="true"><use href="#i-x"></use></svg></button>
+      <div class="zoom-body">
+        <img id="zoomImg" alt="" />
+        <p class="zoom-cap" id="zoomCap"></p>
+      </div>
+    </dialog>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+    <script src="deck.js"></script>
+  </body>
+</html>
